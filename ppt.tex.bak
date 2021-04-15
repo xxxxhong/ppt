@@ -1,0 +1,1031 @@
+\documentclass{beamer}
+\usepackage{CJK}
+\usepackage{newtxmath}
+\usepackage{palatino}
+%\usepackage{amsmath}
+\usepackage{amsthm,amsmath,amssymb}
+\usepackage{mathrsfs}
+\hypersetup{CJKbookmarks=true}
+\usepackage{ctex}
+\usepackage{natbib}
+
+%\usepackage{datetime}
+\renewcommand{\today}{\number\year 年 \number\month 月 \number\day 日}
+\renewcommand{\figurename}{图}
+\renewcommand{\tablename}{表}
+\setbeamertemplate{caption}[numbered]
+\usepackage[ruled,vlined]{algorithm2e}
+
+\setbeamerfont{footnote}{size=\tiny}
+
+\setcitestyle{authoryear,round}
+
+%\usetikzlibrary{arrows,graphs}
+%\usepackage{pdfpages}
+%\definecolor{beamer@blendedblue}{rgb}{0.137,0.466,0.741}
+\definecolor{beamer@blendedblue}{rgb}{0.137,0.466,0.741}
+\usepackage{hyperref}
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+\hypersetup{colorlinks,
+        linkcolor=black,
+        filecolor=black,
+        citecolor=blue,
+        urlcolor=blue}
+%\setbeamertemplate{navigation symbols}{}
+\usetheme{Madrid}
+\setbeamertemplate{headline}{}
+%\usetheme{Luebeck}
+%\setbeamertemplate{footline}[frame number]
+\expandafter\def\expandafter\insertshorttitle\expandafter{%
+	\insertshorttitle\hfill%
+	\insertframenumber\,/\,\inserttotalframenumber}
+\setbeamercolor{structure}{fg=beamer@blendedblue}
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
+\AtBeginSection[]{
+  \begin{frame}
+  \vfill
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+    \usebeamerfont{title}\insertsectionhead\par%
+  \end{beamercolorbox}
+  \vfill
+  \end{frame}
+}
+\begin{document}
+\begin{CJK*}{GBK}{hei}
+%%------------------------------------------
+\title{}
+\author{报告人~~~~洪星星~~\\ 导~~~~师~~~~李文新\\ ~~~~~~~~~~~~~~~~~~~~~~~\\ 北京大学博士生综合考试}
+\titlegraphic{\includegraphics[width=1.2cm]{pku.png}}
+\date{\today}
+\frame{\titlepage}
+
+\begin{frame}
+\frametitle{目录}
+\tableofcontents
+\end{frame}
+
+%%------------------------------------------
+\section{背景知识}
+\begin{frame}\frametitle{MDP$\langle S, A, P, R, \gamma\rangle$}
+\begin{columns}
+    \column{.4\textwidth}
+    \begin{figure}[htbp]
+        \centering\includegraphics[scale=.6]{../rlarc.pdf}
+	    \caption{智能体与环境交互示意}
+    \end{figure}
+    \column{.6\textwidth}
+    {\small{
+    \begin{itemize}
+        \item $S$和$A$分别为状态和动作集合
+        \item $P(s, a, s')$是转移概率函数
+        \item $R(s, a)$是即时收益函数
+        \item 依据策略$\pi(s, a)$与环境交互产生轨迹~~$\boldsymbol{h}=[s_0,a_0,r_1,s_1,a_1,r_2,\dots,s_t,a_t,r_{t+1},\dots]$
+        \item 累计收益~~$ G_{t} =\sum_{k=0}^{\infty}\gamma^{k}r_{t+k+1}$~~($0\leq \gamma\leq 1$)
+        \item 状态价值函数~~$V^{\pi}(s)=\mathbb{E}_{\pi}\left[G_{t} | s_{t}=s\right]$
+        \item 状态-动作价值函数~~$Q^{\pi}(s, a)=\mathbb{E}_{\pi}\left[G_{t} | s_{t}=s, a_{t}=a\right]$
+    \end{itemize}
+    }}
+\end{columns}
+\end{frame}
+
+\begin{frame}\frametitle{策略评估}
+\begin{itemize}
+\item 策略评估~~评估策略$\pi$下的期望累积收益$V^{\pi}(s)$及$Q^{\pi}(s, a)$
+\item 贝尔曼期望等式
+    \begin{align*}
+        V^{\pi}(s) &=\Sigma_{a} \pi(a | s) \Sigma_{s^{\prime}} P\left(s, a, s^{\prime}\right)\left(R\left(s, a, s^{\prime}\right)+\gamma V^{\pi}\left(s^{\prime}\right)\right) \\
+        Q^{\pi}(s, a) &=\Sigma_{s^{\prime}} P\left(s, a, s^{\prime}\right)\left(R\left(s, a, s^{\prime}\right)+\gamma \Sigma_{a^{\prime}} \pi\left(a^{\prime} | s^{\prime}\right) Q^{\pi}\left(s^{\prime}, a^{\prime}\right)\right)
+    \end{align*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{策略评估}
+\begin{theorem}
+基于$V^{\pi}(s)=\Sigma_{a} \pi(a \vert s) \Sigma_{s^{\prime}} P\left(s, a, s^{\prime}\right)\left(R\left(s, a, s^{\prime}\right)+\gamma V^{\pi}\left(s^{\prime}\right)\right)$，定义
+\begin{itemize}
+\item $R^{\pi}_{ave}(s)=\Sigma_{a} \pi(a | s) \Sigma_{s^{\prime}} P\left(s, a, s^{\prime}\right)R\left(s, a, s^{\prime}\right)$
+\item $T^{\pi}(s\rightarrow s^{\prime})=\Sigma_{a} \pi(a | s) P\left(s, a, s^{\prime}\right)$
+\end{itemize}
+定义算子$\mathcal{T}$，可证明$\mathcal{T}$为Banach空间中的压缩算子
+    \begin{align*}
+        \mathcal{T} V\equiv R^{\pi}_{ave}+\gamma T^{\pi} V
+    \end{align*}
+\end{theorem}
+\end{frame}
+
+\begin{frame}\frametitle{策略评估}
+\begin{theorem}
+贝尔曼期望等式递推展开，得$V^{\pi}(\vec S)$与$Q^{\pi}(s, a)$表达式
+        \begin{align*}
+          V^{\pi}(\vec S) &= R^{\pi}_{ave}(\vec S) + (\gamma T^{\pi})^{1} \cdot R^{\pi}_{ave}(\vec S) + (\gamma T^{\pi})^{2} \cdot R^{\pi}_{ave}(\vec S) + \dots\\
+              &= \sum_{k=0}^{\infty} (\gamma T^{\pi})^{k}\cdot R^{\pi}_{ave}(\vec S)\overset{\textcircled{\small{1}}}{=} \sum_{k=0}^{\infty} (\gamma T^{\pi})^{(k)}\cdot R^{\pi}_{ave}(\vec S)\\
+              &\overset{\textcircled{\small{2}}}{=} (\boldsymbol{I}-\gamma T^{\pi})^{-1}\cdot R^{\pi}_{ave}(\vec S)\\
+          Q^{\pi}(s, a)&=R(s,a)+\gamma P(s,a,\vec S)(\boldsymbol{I}-\gamma T^{\pi})^{-1}R_{ave}^{\pi}(\vec S)
+        \end{align*}
+        \begin{itemize}
+        \item $\textcircled{\small{1}}$~~Kolmogrov-Chapman方程
+        \item $\textcircled{\small{2}}$~~$\rho(\gamma T^{\pi})<1$
+        \end{itemize}
+\end{theorem}
+\end{frame}
+
+\begin{frame}\frametitle{策略评估}
+    \begin{figure}[htbp]
+       \centering\includegraphics[scale=0.4]{../markovchain.pdf}
+	   \caption{引入$\gamma(0<\gamma<1)$可视作把MDP转换为MDP'的示例}
+    \end{figure}
+\end{frame}
+
+\begin{frame}\frametitle{策略优化}
+\begin{itemize}
+\item 策略优化~~找最优策略$\pi^{*}$以最大化期望累积收益$V^{\pi}(s)$
+    \begin{align*}
+        \pi^{*}=\arg \max _{\pi} \mathbb{E}[G_t]
+    \end{align*}
+\item 贝尔曼最优化等式
+    {\small{
+    \begin{align*}
+        V^{*}(s) &=\max _{\pi} V^{\pi}(s)=\max _{a} \Sigma_{s^{\prime}} P\left(s, a, s^{\prime}\right)\left(R\left(s, a, s^{\prime}\right)+\gamma V^{*}\left(s^{\prime}\right)\right) \\
+        Q^{*}(s, a) &=\max _{\pi} Q^{\pi}(s, a)=\Sigma_{s^{\prime}} P\left(s, a, s^{\prime}\right)\left(R\left(s, a, s^{\prime}\right)+\gamma \max _{a^{\prime}} Q^{*}\left(s^{\prime}, a^{\prime}\right)\right)\\
+        V^{*}(s)&=\max_{a}Q^{*}(s, a)\quad \scriptstyle{\text{最优策略必为确定性策略}}
+    \end{align*}
+    }}
+\item 类似定义贝尔曼最优化算子具有压缩性以证明存在唯一不动点
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{策略优化}
+    \begin{figure}[htbp]
+       \centering\includegraphics[scale=.7]{../gpi.pdf}
+	   \caption{广义策略提升框架GPI中策略评估与优化交替\citep{sutton2018reinforcement}}
+    \end{figure}
+    \begin{columns}
+        \column{.5\textwidth}
+            \begin{figure}[htbp]
+       \centering\includegraphics[scale=.35]{../policyimprove.pdf}
+	   \caption{策略迭代}
+    \end{figure}
+        \column{.5\textwidth}
+                    \begin{figure}[htbp]
+       \centering\includegraphics[scale=.4]{../valueimprove.pdf}
+	   \caption{值迭代}
+    \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}\frametitle{策略优化}
+策略从$\pi$提升到$\pi^{\prime}$常采用greedy, $\epsilon-$greedy和softmax几种方式
+\begin{itemize}
+    \item greedy
+    \begin{align*}
+    \pi^{\prime}(a | s)&=\left\{
+        \begin{array}{ll}
+            1 &  a=\arg \max _{a} Q^{\pi}(s, a) \\
+            0 & \text { otherwise }
+        \end{array}\right.
+    \end{align*}
+    \item $\epsilon-$greedy
+    \begin{align*}
+        \pi^{\prime}(a | s)&=\left\{\begin{array}{ll}
+        \frac{\epsilon}{|A|}+1-\epsilon, & a=\arg \max _{a} Q^{\pi}(s, a) \\
+        \frac{\epsilon}{|A|}, & \text {otherwise}
+        \end{array}\right.
+    \end{align*}
+    \item softmax
+    \begin{align*}
+        \pi^{\prime}(a | s)&=\frac{e^{\beta {Q^{\pi}(s,a)}}}{\sum_{a\in A} e^{{\beta Q^{\pi}(s,a)}}}\quad 0 \leq \beta;
+    \end{align*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{深度强化学习}
+    \begin{figure}[htbp]
+       \centering\includegraphics[scale=0.35]{../drlarc.pdf}
+	   \caption{深度强化学习智能体与环境交互示意}
+    \end{figure}
+\begin{itemize}
+\item 强化学习算法分类
+{
+\begin{itemize}
+\item 基于值函数拟合、基于策略函数拟合
+\item 基于模型、免模型
+\end{itemize}
+}
+\end{itemize}
+\end{frame}
+
+\section{研究动机}
+
+\begin{frame}\frametitle{策略优化}
+强化学习算法策略提升(优化)非常重要
+\begin{itemize}
+\item $\gamma$
+{
+\begin{itemize}
+    \item $\gamma$可被视作正则项\citep{Amit2020DiscountFA}
+    \item $\gamma$性质探究\citep{Pitis2019RethinkingTD}
+\end{itemize}
+}
+\item 策略提升算子($\operatorname{softmax}$)
+{
+\begin{itemize}
+    \item $\operatorname{softmax}$算子不具有非扩张性\citep{Littman1996AGR}
+    \item 替代策略提升算子$\operatorname{Mellowmax}$\citep{Asadi2017AnAS}
+    \item Dynamic Boltzmann Softmax\citep{Pan2019ReinforcementLW}
+\end{itemize}
+}
+\item 策略梯度定理与优化方法
+{
+\begin{itemize}
+    \item 矩阵表示、求导与优化方法
+    \item TRPO\citep{Schulman2015TrustRP}和ACKTR\citep{Wu2017ScalableTM}等算法
+\end{itemize}
+}
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{硬探索(Hard Exploration Problem)}
+%    \begin{figure}[htbp]
+%       \centering\includegraphics[scale=.4]{../atari.pdf}
+%	   \caption{三种Atari游戏}
+%    \end{figure}
+
+\begin{columns}
+\column{.5\textwidth}
+    \begin{figure}[htbp]
+        \centering\includegraphics[scale=.3]{../mr.pdf}
+    \end{figure}
+\column{.5\textwidth}
+    \begin{figure}[htbp]
+        \centering\includegraphics[scale=.4]{../dqnmr.pdf}
+        \caption{DQN\citep{Mnih2015HumanlevelCT}}
+    \end{figure}
+\end{columns}
+\end{frame}
+
+\begin{frame}\frametitle{样本效率(Sample Inefficiency)}
+\begin{columns}
+\column{.5\textwidth}
+    \begin{itemize}
+        \item 1000万游戏帧训练DQN
+    \end{itemize}
+    \begin{figure}[htbp]
+        \centering\includegraphics[scale=.8]{../dqnmillion.pdf}
+	\caption{Atari Seaquest\citep{Mnih2015HumanlevelCT}}
+    \end{figure}
+\column{.5\textwidth}
+    \begin{itemize}
+        \item 490万局围棋对局
+    \end{itemize}
+    \begin{figure}[htbp]
+        \centering\includegraphics[scale=.8]{../alphagomillion.pdf}
+	\caption{AlphaGo\citep{Silver2017MasteringTG}}
+    \end{figure}
+\end{columns}
+\end{frame}
+
+\begin{frame}\frametitle{环境噪声(Noisy-TV Problem)}
+    \begin{figure}[htbp]
+        \centering\includegraphics[scale=0.4]{../tv.pdf}
+	\caption{迷宫墙面上的噪声电视(Noisy-TV Problem)\citep{Burda2019ExplorationBR}}
+    \end{figure}
+\end{frame}
+
+\section{相关数学基础}
+\begin{frame}\frametitle{相关数学基础}
+\begin{itemize}
+\item 马尔科夫链\citep{sp2008heshuyuan}\citep{kangconglu2015}
+{
+    \begin{itemize}
+        \item K-C方程、常返性、可约性、周期性、遍历性与遍历定理等
+    \end{itemize}
+}
+\item 线性代数\citep{matrix2013fang}
+{
+    \begin{itemize}
+        \item 范数、赋范线性空间、谱半径、特征值上界定理、转移概率矩阵特征值、矩阵幂级数收敛充要条件、压缩映射原理等
+    \end{itemize}
+}
+\item 概率论与统计学\citep{casella2007statistical}\citep{thinkbayes2013}\citep{bayesianupdate}\citep{Hoeffdingnotes}
+{
+    \begin{itemize}
+        \item 离散型与连续型先验的贝叶斯定理、Beta分布、马尔科夫不等式、车比雪夫不等式、霍夫丁引理、切诺夫霍夫丁界等
+    \end{itemize}
+}
+\item 信息论\citep{2006Elements}
+{
+    \begin{itemize}
+        \item 熵、相对熵、互信息、信息增益、条件熵、联合熵、凸函数、Jensen不等式、$\max$函数凸性、熵的凹性等
+    \end{itemize}
+}
+\item 数值优化\citep{Gaoli2014numoptimize}
+{
+    \begin{itemize}
+        \item 信赖域优化方法
+    \end{itemize}
+}
+\end{itemize}
+\end{frame}
+
+\section{强化学习算法}
+\begin{frame}\frametitle{DQN}
+        \begin{columns}
+            \column{.6\textwidth}
+            \begin{figure}[htbp]
+                \centering\includegraphics[scale=0.5]{../dqnarc.pdf}
+    	    \caption{DQN架构\citep{Mnih2015HumanlevelCT}}
+            \end{figure}
+            \column{.4\textwidth}
+            \begin{itemize}
+                \item 深度卷积网络
+                \item 经验回放
+                \item 目标网络
+            \end{itemize}
+        \end{columns}
+        {\small{
+            \begin{align*}
+                L_{i}\left(\theta_{i}\right)&=\mathbb{E}_{\left(s, a, r, s^{\prime}\right) \sim \mathrm{U}(D)}\left[\left(r+\gamma \max _{a^{\prime}} Q\left(s^{\prime}, a^{\prime} ; \theta_{i}^{-}\right)-Q\left(s, a ; \theta_{i}\right)\right)^{2}\right]\\
+                \nabla_{\theta_{i}} L\left(\theta_{i}\right) \quad&=\mathbb{E}_{s, a, r, s^{\prime}}\left[\left(r+\gamma \max _{a^{\prime}} Q\left(s^{\prime}, a^{\prime} ; \theta_{i}^{-}\right)-Q\left(s, a ; \theta_{i}\right)\right) \nabla_{\theta_{i}} Q\left(s, a ; \theta_{i}\right)\right]
+            \end{align*}
+        }}
+\end{frame}
+
+\begin{frame}\frametitle{DQN变种}
+\begin{table}[htbp]
+        \caption{DQN及其变种算法}
+        {\scalebox{0.7}{
+        \begin{tabular}{|l|l|}
+            \hline
+            \textbf{算法} & \textbf{特点}  \\ \hline
+            \begin{tabular}[c]{@{}l@{}}DQN \\ \citep{Mnih2015HumanlevelCT}\end{tabular}          & \begin{tabular}[c]{@{}l@{}}CNN网络，卷积层感知，全连接层输出动作概率；\\ 经验回放池机制；\\ 目标网络以稳定训练；\\ $Y^{DQN}\equiv r+\gamma \max _{a^{\prime}} Q\left(s^{\prime}, a^{\prime} ; \theta_{i}^{-}\right)$\end{tabular} \\ \hline
+            \begin{tabular}[c]{@{}l@{}}Double DQN\\ \citep{Hasselt2016DeepRL}\end{tabular}  & \begin{tabular}[c]{@{}l@{}}将选动作和评估值函数解耦，用两个网络\\ $Y^{DoubleDQN} \equiv r+\gamma Q\left(s^{\prime}, \arg\max_{a^{\prime}\in A}Q(s^{\prime},a^{\prime},\theta_i) ; \theta_{i}^{-}\right)$\end{tabular}      \\ \hline
+            \begin{tabular}[c]{@{}l@{}}优先经验回放\\ \citep{Schaul2016PrioritizedER}\end{tabular}      & 将相对更重要的记忆以更高频率被回放                                                                                                          \\ \hline
+            \begin{tabular}[c]{@{}l@{}}Dueling DQN\\ \citep{Wang2016DuelingNA}\end{tabular} & 定义优势函数$A^{\pi}(s,a)$，将$Q^{\pi}(s,a)$拆解为$V^{\pi}(s)$与$A^{\pi}(s,a)$两部分                     \\ \hline
+            \begin{tabular}[c]{@{}l@{}}Rainbow\\ \citep{Hessel2018RainbowCI}\end{tabular}     & 结合上述所有特点的方案，还包括 多步、随机参数等技巧                                       \\ \hline
+        \end{tabular}
+        }}
+\end{table}
+\end{frame}
+
+\begin{frame}\frametitle{随机策略梯度定理}
+\begin{theorem}
+\begin{align*}
+        \nabla J(\theta)&=\nabla V^{\pi}(x_0)\\
+        &=\sum_{x}\sum_{k=0}(\gamma T^{\pi})^{(k)}_{{x_0}\rightarrow x}\mathbb{E}_{\pi}\left[Q^{\pi}(x,a)\nabla \log \pi(x,a;\theta)\right]\\
+        &\approx \underbrace{\frac{1}{m}\sum_{i=1}^{m}\sum_{k=0}^{H_{i}}\left[\gamma^k Q(x,a)\nabla \log \pi(x, a ; \theta)|x_0\stackrel{(k)}{\longrightarrow}x\right]}_{\text{依据}T^{\pi}\text{且}x_0\sim \operatorname{uniform}(S)}
+\end{align*}
+\begin{itemize}
+\item \citep{sutton2018reinforcement}证明步骤与结论均隐去了$\gamma$
+\item 实质上含$\gamma$更符合原始定义更准确
+\end{itemize}
+\end{theorem}
+\end{frame}
+
+\begin{frame}\frametitle{随机策略梯度算法}
+\begin{table}[htbp]
+        \caption{REINFORCE等随机策略梯度算法}
+        {\scalebox{0.7}{
+        \begin{tabular}{|l|l|}
+        \hline
+        \textbf{算法}      & \textbf{特点}                                                                                                                                                                                                                                                                                                                                         \\ \hline
+        \begin{tabular}[c]{@{}l@{}}REINFORCE\\\citep{NIPS19991713} \end{tabular}        & \begin{tabular}[c]{@{}l@{}}基于随机梯度定理，梯度为\\ $\sum_{x}\sum_{k=0}(\gamma T^{\pi})^{(k)}_{s\rightarrow x}\mathbb{E}_{\pi}\left[Q^{\pi}(x,a)\nabla \log \pi(x,a;\theta)\right]$\\ 用蒙特卡洛方法估计梯度\\ $\frac{1}{m}\sum_{i=1}^{m}\sum_{k=0}^{H_{i}}\left[\gamma^k Q(x,a)\nabla \log \pi(x, a ; \theta)|x_0\stackrel{(k)}{\longrightarrow}x\right]$\end{tabular} \\ \hline
+        引入基线的REINFORCE & \begin{tabular}[c]{@{}l@{}}引入常数基数$b$有利于减小方差\\ 且对策略梯度保持为无偏估计\end{tabular}                                                                                                                                                                                                                                                                            \\ \hline
+        \begin{tabular}[c]{@{}l@{}}Actor-Critic\\ \end{tabular} & 策略函数拟合之外增加对状态-动作价值函数拟合                                                                                                                                                                                                                                                                                                                              \\ \hline
+        \begin{tabular}[c]{@{}l@{}}A2C\\ \citep{Mnih2016AsynchronousMF} \end{tabular}  & \begin{tabular}[c]{@{}l@{}}把Critic网络原始的累计收益替换成优势函数 \end{tabular}                                                                                                                                                                                                                                                                  \\ \hline
+        \begin{tabular}[c]{@{}l@{}}A3C\\ \citep{Mnih2016AsynchronousMF} \end{tabular} & \begin{tabular}[c]{@{}l@{}}多线程异步运行\\ 全局有一套Actor神经网络参数\\ 各环境中也存有一副本\end{tabular}                                                                                                                                                                                                                                                                     \\ \hline
+        \end{tabular}
+        }}
+        \end{table}
+\end{frame}
+
+\begin{frame}\frametitle{确定性策略梯度定理}
+\begin{theorem}
+\resizebox{.8\linewidth}{!}{
+    \begin{minipage}{\linewidth}
+        \begin{align*}
+            \nabla_{\theta} V^{\mu_{\theta}}(s)&=\nabla_{\theta} Q^{\mu_{\theta}}\left(s, \mu_{\theta}(s)\right)\\
+            &=\left.\int_{\mathcal{S}} \sum_{t=0}^{\infty} \gamma^{t} p\left(s \rightarrow s^{\prime}, t, \mu_{\theta}\right) \nabla_{\theta} \mu_{\theta}\left(s^{\prime}\right) \nabla_{a} Q^{\mu_{\theta}}\left(s^{\prime}, a\right)\right|_{a=\mu_{\theta}\left(s^{\prime}\right)} \mathrm{d} s^{\prime}\\
+            \nabla_{\theta} J\left(\mu_{\theta}\right) &=\nabla_{\theta} \int_{\mathcal{S}} p_{1}(s) V^{\mu_{\theta}}(s) \mathrm{d} s \\
+            &=\int_{\mathcal{S}} p_{1}(s) \nabla_{\theta} V^{\mu_{\theta}}(s) \mathrm{d} s \\
+            &=\left.\int_{\mathcal{S}} \int_{\mathcal{S}} \sum_{t=0}^{\infty} \gamma^{t} p_{1}(s) p\left(s \rightarrow s^{\prime}, t, \mu_{\theta}\right) \nabla_{\theta} \mu_{\theta}\left(s^{\prime}\right) \nabla_{a} Q^{\mu_{\theta}}\left(s^{\prime}, a\right)\right|_{a=\mu_{\theta}\left(s^{\prime}\right)} \mathrm{d} s^{\prime} \mathrm{d} s \\
+            &=\left.\int_{\mathcal{S}} \rho^{\mu_{\theta}}(s) \nabla_{\theta} \mu_{\theta}(s) \nabla_{a} Q^{\mu_{\theta}}(s, a)\right|_{a=\mu_{\theta}(s)} \mathrm{d} s
+        \end{align*}
+        \begin{itemize}
+            \item 结论引自\citep{Silver2014DeterministicPG}，与随机策略梯度推导有异曲同工之妙
+        \end{itemize}
+        \end{minipage}
+}
+\end{theorem}
+\end{frame}
+
+\begin{frame}\frametitle{确定性策略梯度算法}
+ \begin{table}[htbp]
+        \caption{DDPG等确定性策略梯度算法}
+        {\scalebox{0.7}{
+        \begin{tabular}{|l|l|}
+        \hline
+        \textbf{算法}      & \textbf{特点}
+        \\ \hline                                                                                                                                                                                     \begin{tabular}[c]{@{}l@{}}DPG   \\ \citep{Silver2014DeterministicPG} \end{tabular}  & \begin{tabular}[c]{@{}l@{}l@{}l@{}} 基于确定性策略梯度定理\\ 状态映射到动作值而非动作概率分布$a=\mu_{\theta}(s)$ \\ $\left.\int_{\mathcal{S}} \rho^{\mu_{\theta}}(s) \nabla_{\theta} \mu_{\theta}(s) \nabla_{a} Q^{\mu_{\theta}}(s, a)\right|_{a=\mu_{\theta}(s)} \mathrm{d} s$ \\ $\theta^{k+1}=\theta^{k}+\alpha \mathbb{E}_{s \sim \rho^{\mu}}\left[\left.\nabla_{\theta} \mu_{\theta}(s) \nabla_{a} Q^{\mu^{k}}(s, a)\right|_{a=\mu_{\theta}(s)}\right]$\end{tabular}                                                                                                                                                                                                                                                           \\ \hline
+        \begin{tabular}[c]{@{}l@{}}异策略DPG  \\ \citep{Silver2014DeterministicPG} \end{tabular} & \begin{tabular}[c]{@{}l@{}}利用行为策略的样本辅助训练\\ 解决确定性策略探索性不足的问题\end{tabular}                                                                                                                                                                                                                                                                      \\ \hline
+        \begin{tabular}[c]{@{}l@{}}DDPG  \\ \citep{Lillicrap2015ContinuousCW}\end{tabular}   & \begin{tabular}[c]{@{}l@{}}借用DQN两个机制：经验回放和独立目标网络\\ 目标网络的参数采用soft更新模式\end{tabular}                                                                                                                                                                                                                                                      \\ \hline
+        \end{tabular}
+        }}
+        \end{table}
+\end{frame}
+
+\begin{frame}\frametitle{基于信赖域思想的策略梯度算法}
+ \begin{table}[htbp]
+        \caption{TRPO与PPO算法}
+        {\scalebox{0.7}{
+        \begin{tabular}{|l|l|}
+        \hline
+        \textbf{算法}      & \textbf{特点}
+        \\ \hline                                                                                                                                                                           \begin{tabular}[c]{@{}l@{}}TRPO  \\ \citep{Schulman2015TrustRP} \end{tabular} & \begin{tabular}[c]{@{}l@{}}基于信赖域优化思想\\ 用变化前后的策略的KL散度确定参数更新邻域\\ 控制策略迭代的更新幅度\\ 再求解梯度更新方向与步长 \\ $J(\theta) = \mathbb{E}_{s \sim \rho^{\pi_{\theta_\text{old}}}, a \sim \pi_{\theta_\text{old}}} \big[ \frac{\pi_\theta(a \vert s)}{\pi_{\theta_\text{old}}(a \vert s)} \hat{A}_{\theta_\text{old}}(s, a) \big]$ \\ $\mathbb{E}_{s \sim \rho^{\pi_{\theta_\text{old}}}} [D_\text{KL}(\pi_{\theta_\text{old}}(.\vert s) \| \pi_\theta(.\vert s)] \leq \delta$\end{tabular}                                                                                                                                                                                                                                                                       \\ \hline
+        \begin{tabular}[c]{@{}l@{}}PPO  \\ \citep{Schulman2017ProximalPO} \end{tabular}   & \begin{tabular}[c]{@{}l@{}} 用近端策略优化思想简化目标函数的约束求解\\ $J^\text{CLIP} (\theta) = \mathbb{E} [ \min( r(\theta) \hat{A}_{\theta_\text{old}}(s, a), \text{clip}(r(\theta), 1 - \epsilon, 1 + \epsilon) \hat{A}_{\theta_\text{old}}(s, a))]$ \end{tabular}                                                                                                                                                                                                                                                      \\ \hline
+        \end{tabular}
+        }}
+        \end{table}
+\end{frame}
+
+\section{“探索与利用”概述}
+\begin{frame}\frametitle{探索与利用}
+\begin{itemize}
+\item 探索问题\citep{Levinecs294}
+{
+    \begin{itemize}
+        \item 智能体如何发现高收益策略，往往最优策略由时序上一系列复杂行动构成，且很可能单独考察每个行动并无正收益？
+        \item 智能体该如何决定：是该尝试新行动来发现更高收益，抑或用已知能够获取高收益的行动来继续应对？
+    \end{itemize}
+}
+\item 两种权衡\citep{liangpengzhang2019}
+{
+\begin{itemize}
+\item 探索与利用困境 (Exploration and Exploitation Dilemma)
+\item 为将来利用而探索 (Exploration for Future Exploitation)
+\end{itemize}
+}
+\item 探索策略\citep{liangpengzhang2019}
+{
+\begin{itemize}
+\item 随机探索
+\item 系统性探索
+\end{itemize}
+}
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{多臂老虎机}
+\begin{columns}
+\column{.2\textwidth}
+    \begin{figure}[htbp]
+        \centering\includegraphics[scale=0.1]{../mab.png}
+	\caption{MAB}
+    \end{figure}
+\column{.8\textwidth}
+    \begin{figure}[htbp]
+        \centering\includegraphics[scale=0.6]{../mabalgo.pdf}
+	\caption{MAB Learning\citep{stochasticmab}}
+    \end{figure}
+\end{columns}
+\end{frame}
+
+\begin{frame}\frametitle{基于乐观探索的方法}
+\begin{itemize}
+\item 平均遗憾值函数~~$T$次摇动最优老虎机臂的期望收益和$-$实际动作序列对应的期望收益和
+\begin{align*}
+    \operatorname{Reg}(T)=T \mu^{*}-\sum_{t=1}^{T} \mathbb{E}\left[\mu_{i_{t}}\right]
+\end{align*}
+\item UCB1算法\citep{Auer2002FinitetimeAO}
+{
+    \begin{itemize}
+        \item $i_{t} \leftarrow \operatorname{argmax}_{i \in[n]}\left(\widehat{\mu}_{i}^{t-1}+\sqrt{\frac{\alpha \ln t}{2 N_{i}^{t-1}}}\right)$
+        \item $\operatorname{Reg}(T)$上界为$O(\log T)$
+    \end{itemize}
+}
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{基于汤普森采样的方法}
+\begin{itemize}
+\item 使用后验概率而非$\epsilon-$greedy做更有针对性的探索\citep{Chapelle2011AnEE}
+\item Beta分布为0-1分布的共轭先验，在先验分布为Beta分布而似然函数为0-1分布时，后验概率分布仍是Beta分布
+\end{itemize}
+\begin{columns}
+\column{.5\textwidth}
+\begin{align*}
+       \theta_{i} &\sim B\left(S_{i}+\alpha, F_{i}+\beta\right)\\
+       S_{\hat{\imath}}&=S_{\hat{\imath}}+1, \text{如果}r_{i\sim \operatorname{Beta}}=1\\
+       F_{\hat{\imath}}&=F_{\hat{\imath}}+1, \text{如果}r_{i\sim \operatorname{Beta}}=0
+\end{align*}
+\column{.5\textwidth}
+    \begin{figure}[htbp]
+        \centering\includegraphics[scale=0.3]{../betadis.png}
+	\caption{Beta分布\citep{astroML}}
+    \end{figure}
+\end{columns}
+\end{frame}
+
+\begin{frame}\frametitle{基于信息增益的方法}
+\begin{itemize}
+\item \citep{Russo2014LearningTO}从信息增益角度提出探索策略IDS(Information Directed Sampling)
+\begin{align*}
+\mathscr{F}_{t}&=\left(A_{1}, Y_{1, A_{1}}, \ldots, A_{t-1}, Y_{t-1, A_{t-1}}\right)\\
+                        &~~~~~~~~~~~~~~~~\downarrow~~~~~~~~\dots~~~~~~~~~~~\downarrow\\
+                        &~~~~~~~~~~~~~R_{1,A_1}~~~~~~~\dots~~~~~R_{t-1,A_{t-1}}
+\end{align*}
+\item 关于$A^{*}$的后验概率分布~~ $\alpha_{t}(a)=\mathbb{P}\left(A^{*}=a \vert \mathscr{F}_{t}\right)$
+\item 信息增益~~$g_{t}(a)=\mathbb{E}\left[H\left(\alpha_{t}\right)-H\left(\alpha_{t+1}\right) \vert \mathscr{F}_{t}, A_{t}=a\right]$
+\item 在$t$时选择$a$的即时遗憾期望~~$\Delta_{t}(a):=$ $\mathbb{E}\left[R_{t, A^{*}}-R_{t, a} \vert \mathscr{F}_{t}\right]$
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{基于信息增益的方法}
+\begin{itemize}
+\item $\pi$策略下的平均信息增益
+\begin{align*}
+    \pi \in \mathscr{D}(\mathscr{A}), ~~ g_{t}(\pi):=\Sigma_{a \in \mathscr{A}} \pi(a) g_{t}(a)
+\end{align*}
+\item $\pi$策略下的平均遗憾期望
+\begin{align*}
+    \Delta_{t}(\pi)=\sum_{a \in \mathscr{A}} \pi(a) \Delta_{t}(a)
+\end{align*}
+\item 探索策略IDS(Information Directed Sampling)
+\begin{align*}
+    \pi_{t}^{\mathrm{IDS}} &\in \underset{\pi \in \mathcal{D}(\mathscr{A})}{\arg \min }\left\{\Psi_{t}(\pi):=\frac{\Delta_{t}(\pi)^{2}}{g_{t}(\pi)}\right\}
+\end{align*}
+\item 避免那些几乎获取不到新信息的选择
+\item 避免那些明显次优的选择
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{探索方法的设计原则}
+探索方法设计的惯用原则\citep{Levinecs294}\citep{weng2020exploration}
+\begin{enumerate}
+\item 增加随机扰动
+\item 引入熵正则项以增大探索性
+\item 对未知抱以乐观，选不确定度大的项
+\item 认为$\text{新}=\text{好}$，关键是定义“新”
+\item 推断概率分布，依据分布“最佳”决策
+\end{enumerate}
+\end{frame}
+
+\begin{frame}\frametitle{探索方法的理论分析}
+    \begin{figure}[htbp]
+        \centering\includegraphics[scale=.35]{../tt.pdf}
+        \caption{探索问题的理论分析难度随状态空间规模而变化\citep{Levinecs294}}
+    \end{figure}
+\end{frame}
+
+\section{强化学习中的“探索与利用”方法}
+\begin{frame}\frametitle{强化学习中的“探索与利用”方法}
+\begin{itemize}
+\item 基于好奇心驱动的探索
+\item 基于熵正则的探索
+\item 用带噪声神经网络实现探索
+\item 高效利用样本经验
+\item 其他方法及理论工作
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Intrinsic Curiosity Module(ICM)}
+        \begin{figure}[htbp]
+            \centering\includegraphics[scale=0.55]{../icm.pdf}
+	       \caption{Intrinsic Curiosity Module(ICM)框架\citep{Pathak2017CuriosityDrivenEB}}
+        \end{figure}
+\resizebox{.8\linewidth}{!}{
+    \begin{minipage}{\linewidth}
+        \begin{align*}
+            L_{F}\left(\phi\left(s_{t}\right), \hat{\phi}\left(s_{t+1}\right)\right)&=\frac{1}{2}\left\|f\left(\phi\left(s_{t}\right), a_{t} ; \theta_{F}\right)-\phi\left(s_{t+1}\right)\right\|_{2}^{2}~~~~L_{I}\left(\hat{a}_{t}, a_{t};\theta_{I}\right)\\
+            &\min _{\theta_{P}, \theta_{I}, \theta_{F}}\left[-\lambda \mathbb{E}_{\pi\left(s_{t} ; \theta_{P}\right)}\left[\Sigma_{t} r_{t}\right]+(1-\beta) L_{I}+\beta L_{F}\right]
+        \end{align*}
+        \end{minipage}
+}
+\end{frame}
+
+\begin{frame}\frametitle{Disagreement}
+\begin{itemize}
+\item 多ICM集成，用模型间的不一致表达探索的额外收益
+\end{itemize}
+        \begin{figure}[htbp]
+            \centering\includegraphics[scale=0.7]{../disagree.pdf}
+	       \caption{基于不一致意见的探索模型框架\citep{pathak2019selfsupervised}}
+        \end{figure}
+\end{frame}
+
+\begin{frame}\frametitle{DORA}
+\begin{itemize}
+\item 构造新MDP $M'$指引探索方向\citep{Choshen2018DORATE}
+{\begin{itemize}
+    \item 基于原MDP~$M=(S, A, R, P, \gamma)$构造$M'=\left(S, A, 0, P, \gamma_{E}\right)$
+    \item 在$M'$上学习得到的$Q$值函数记做$E$值
+    \item 将$M^{\prime}$中所有状态动作对的$E$值初始化为1，即 $E(s, a)=1$
+    \item 由于$E^{*}(s, a)=0$，在训练过程中，状态动作对的 $E(s, a)$将从1逐步变为0，接近真实的值函数
+    \begin{align*}
+        E(s, a) &\leftarrow(1-\alpha) E(s, a)+\alpha\left(0+\gamma_{E} E\left(s^{\prime}, a^{\prime}\right)\right)
+    \end{align*}
+    \item 借助$\log _{1-\alpha} E$构造额外奖赏，指导动作选择
+\end{itemize}
+}
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Episodic Curiosity}
+\begin{itemize}
+\item 用可达性描述新颖度
+\item 用神经网络度量可达
+\item 基于可达定义增强奖赏
+\end{itemize}
+        \begin{figure}[htbp]
+            \centering\includegraphics[scale=1]{../ec1.pdf}
+	    \caption{Episodic Curiosity中的新颖度(novelty)\citep{Savinov2019EpisodicCT}}
+        \end{figure}
+\end{frame}
+
+\begin{frame}\frametitle{Episodic Curiosity}
+\begin{columns}
+\column{.5\textwidth}
+        \begin{figure}[htbp]
+            \centering\includegraphics[scale=0.52]{../ec2.pdf}
+	    \caption{可达性度量$R$-网络}
+        \end{figure}
+\column{.5\textwidth}
+        \begin{figure}[htbp]
+            \centering\includegraphics[scale=0.6]{../ec3.pdf}
+	    \caption{EC模型整体架构}
+        \end{figure}
+\end{columns}
+\resizebox{.7\linewidth}{!}{
+    \begin{minipage}{\linewidth}
+        \begin{align*}
+                    \mathbf{e}&=E(\mathbf{o})\quad \scriptstyle{\text{embedding vector of } \mathbf{o}}\\
+                    \mathbf{M}&=\left\langle\mathbf{e}_{1}, \ldots, \mathbf{e}_{|\mathbf{M}|}\right\rangle \quad \scriptstyle{\text{memory buffer stores  $\mathbf{|\mathbf{M}|}$ elements}}\\
+                    c_{i}&=C\left(\mathbf{e}_{i}, \mathbf{e}\right), \quad i=1,|\mathbf{M}| \quad \scriptstyle{\text{outputs of comparator network}}\\
+                    C(\mathbf{M}, \mathbf{e})&=F\left(c_{1}, \ldots, c_{|\mathbf{M}|}\right) \in[0,1] \quad \scriptstyle{\text{aggregation function F, could be $\max$}}\\
+                    b=B(\mathbf{M}, \mathbf{e})&=\alpha(\beta-C(\mathbf{M}, \mathbf{e})) \quad \scriptstyle{\text{bonus calculator}}
+        \end{align*}
+        \end{minipage}
+}
+\end{frame}
+
+\begin{frame}\frametitle{Hash Based Pseudo-Counts}
+\begin{itemize}
+\item 探索增强奖赏为$r^{i}: \mathcal{S} \mapsto \mathbb{R}$。
+        \begin{align*}
+            r^{+}(s)=\frac{\beta}{\sqrt{n(\phi(s))}}
+        \end{align*}
+\item 通过$\phi(\mathbf{s})$将$s$压缩为$k$位编码，再计数$n(\phi(\mathbf{s}))$
+\begin{align*}
+            \phi(s) = \text{sgn}(A g(s)) \in \{-1, 1\}^k
+\end{align*}
+\item AutorEncoder编码更复杂或连续空间的观测
+\begin{figure}[htbp]
+       \centering\includegraphics[scale=0.7]{../explorationae.pdf}
+	    \caption{基于自编码器的哈希编码计数方法架构\citep{Tang2017ExplorationAS}}
+\end{figure}
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Soft Q-Learning}
+\begin{itemize}
+\item Q学习策略弊端
+{
+\begin{itemize}
+\item 连续状态、动作空间
+\item 任务自适应性差
+\end{itemize}
+}
+        \begin{figure}[htbp]
+            \centering\includegraphics[scale=0.25]{../maze.pdf}
+	    \caption{巡航任务微调环境致最优策略彻底失效\citep{Haarnoja2017ReinforcementLW}}
+        \end{figure}
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Soft Q-Learning}
+\begin{itemize}
+\item 引入熵正则化项并重构贝尔曼方程
+        \begin{figure}[htbp]
+            \centering\includegraphics[scale=0.2]{../boltzmannq.pdf}
+	    \caption{将最优策略表达为玻尔兹曼分布}
+        \end{figure}
+\end{itemize}
+
+\resizebox{.7\linewidth}{!}{
+    \begin{minipage}{\linewidth}
+        \begin{align*}
+             \pi_{\mathrm{MaxEnt}}^{*}&=\arg \max _{\pi} \sum_{t} \mathbb{E}_{\left(\mathbf{s}_{t}, \mathbf{a}_{t}\right) \sim \rho_{\pi}}\left[r\left(\mathbf{s}_{t}, \mathbf{a}_{t}\right)+\alpha \mathcal{H}\left(\pi\left(\cdot \vert \mathbf{s}_{t}\right)\right)\right]\\
+            Q_{\text {soft }}^{*}\left(\mathbf{s}_{t}, \mathbf{a}_{t}\right)&=r_{t}+
+\mathbb{E}_{\left(\mathbf{s}_{t+1}, \ldots\right) \sim \rho_{\pi}}\left[\sum_{l=1}^{\infty} \gamma^{l}\left(r_{t+l}+\alpha \mathcal{H}\left(\pi_{\text {MaxEnt }}^{*}\left(\cdot \vert \mathbf{s}_{t+l}\right)\right)\right)\right]\\
+            V_{\mathrm{soft}}^{*}\left(\mathbf{s}_{t}\right)&=\alpha \log \int_{\mathcal{A}} \exp \left(\frac{1}{\alpha} Q_{\mathrm{soft}}^{*}\left(\mathbf{s}_{t}, \mathbf{a}^{\prime}\right)\right) d \mathbf{a}^{\prime}
+        \end{align*}
+                \end{minipage}
+}
+\end{frame}
+
+\begin{frame}\frametitle{Soft Actor-Critic}
+\begin{itemize}
+\item \citep{Haarnoja2018SoftAO}引入熵正则项，重构造贝尔曼方程
+{
+\begin{itemize}
+\item \textbf{策略评估}
+        \begin{align*}
+            \mathcal{T}^{\pi} Q\left(\mathbf{s}_{t}, \mathbf{a}_{t}\right) &= r\left(\mathbf{s}_{t}, \mathbf{a}_{t}\right)+\gamma \mathbb{E}_{\mathbf{s}_{t+1} \sim p}\left[V\left(\mathbf{s}_{t+1}\right)\right]\\
+            V\left(\mathbf{s}_{t}\right)&=\mathbb{E}_{\mathbf{a}_{t} \sim \pi}\left[Q\left(\mathbf{s}_{t}, \mathbf{a}_{t}\right)-\log \pi\left(\mathbf{a}_{t} \vert \mathbf{s}_{t}\right)\right]
+        \end{align*}
+\item $Q^{k+1}=\mathcal{T}^{\pi} Q^{k}$反复迭代求得$Q$与$V$值收敛点
+\item \textbf{策略提升}
+\begin{align*}
+            \pi_{\mathrm{new}}=\arg \min _{\pi^{\prime} \in \Pi} \mathrm{D}_{\mathrm{KL}}\left(\pi^{\prime}\left(\cdot \vert \mathbf{s}_{t}\right) \| \frac{\exp \left(Q^{\pi_{\text {old }}}\left(\mathbf{s}_{t}, \cdot\right)\right)}{Z^{\pi_{\text {old }}\left(\mathbf{s}_{t}\right)}}\right)
+\end{align*}
+\item 引入$V$值目标网络、采用重参数化技巧处理梯度更新
+\end{itemize}
+}
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{NoisyNet}
+\begin{itemize}
+\item NoisyNet\citep{Fortunato2018NoisyNF}在神经网络参数中掺杂噪声以增强策略探索性
+\begin{align*}
+    y&=w x+b\\
+    y &\stackrel{\text { def }}{=}\left(\mu^{w}+\sigma^{w} \odot \varepsilon^{w}\right) x+\mu^{b}+\sigma^{b} \odot \varepsilon^{b}
+\end{align*}
+\end{itemize}
+\begin{figure}[htbp]
+    \centering\includegraphics[scale=0.4]{../linearlayer.pdf}
+	\caption{引入随机噪声参数的线性层模型}
+\end{figure}
+\end{frame}
+
+\begin{frame}\frametitle{Parameter Space Noise}
+\begin{figure}[htbp]
+    \centering\includegraphics[scale=0.3]{../p_diag_1.png}
+    \caption{动作空间和策略参数空间引入噪声对比\citep{Plappert2017ParameterSN}}
+\end{figure}
+\begin{columns}
+\column{.5\textwidth}
+\begin{align*}
+a_{t}=\pi\left(s_{t}\right)+\mathcal{N}\left(0, \sigma^{2} I\right)
+\end{align*}
+\column{.5\textwidth}
+\begin{align*}
+\widetilde{\theta}=\theta+\mathcal{N}\left(0, \sigma^{2} I\right)
+\end{align*}
+\end{columns}
+\end{frame}
+
+\begin{frame}\frametitle{RND}
+\begin{itemize}
+\item RND\citep{Burda2019ExplorationBR}引入网络蒸馏技术，Target Network有固定的随机初始化的权重，在训练中不改变，它能够为每一个状态观测输出一个特征表示
+\item Predictor Network将Target Network的输出结果作为label 并根据MSE损失更新参数$\theta$
+\end{itemize}
+\begin{figure}[htbp]
+        \centering\includegraphics[scale=0.25]{../rnd.pdf}
+	    \caption{Random Network Distillation(RND)模型产生内在增强奖赏}
+\end{figure}
+\end{frame}
+
+\begin{frame}\frametitle{RND}
+\begin{itemize}
+\item 与ICM不同，RND框架中前向网络易于实现和计算，不以$s_t$,$a_t$作输入预测下一状态特征表示
+\end{itemize}
+\begin{figure}[htbp]
+            \centering\includegraphics[scale=0.35]{../rndicm.pdf}
+	    \caption{RND与ICM中前向预测模块对比}
+        \end{figure}
+\end{frame}
+
+\begin{frame}\frametitle{Hindsight Experience Replay}
+\begin{itemize}
+\item HER\citep{Andrychowicz2017HindsightER}解决稀疏的二元奖赏任务
+{
+\begin{itemize}
+\item 预设目标$g$，轨迹序列为$s_{0}, s_{1}, s_{2}, \cdots, s_{T}\neq g$，将目标重设为$s_T$，未成功完成任务变为成功
+\item 扩展目标集合$\mathcal{G}(g \in \mathcal{G})$，有利于扩充经验池中正例采样轨迹
+\begin{align*}
+            a_{t} &\leftarrow \pi_{b}\left(s_{t} \| g\right)\quad \scriptstyle{\| \text{意味着将}s_t\text{和}g\text{串接起来}}\\
+            r_{t}&:=r\left(s_{t}, a_{t}, g\right) \quad \scriptstyle{g \text{随机取自} \mathcal{G}}\\
+            \text{Replay Buffer} &\leftarrow \left(s_{t}\left\|g, a_{t}, r_{t}, s_{t+1}\right\| g\right) \quad \scriptstyle{\text{串接}s_t\text{和}g\text{存入经验回放池}}
+\end{align*}
+\end{itemize}
+}
+\item 课程学习(Curriculum Learning)\citep{Bengio2009Curriculum}
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Go-Explore}
+\begin{figure}[htbp]
+            \centering\includegraphics[scale=0.65]{../imdisadvantage.pdf}
+	    \caption{Intrinsic Motivation(IM)类方法存在的问题}
+\end{figure}
+\end{frame}
+
+\begin{frame}\frametitle{Go-Explore}
+\begin{itemize}
+\item Uber提出Go-Explore解决门特祖玛复仇问题
+{
+\begin{itemize}
+\item 存档探索过的路径
+\item 如有必要对存档路径模仿学习
+\item 图像粗粒化
+\end{itemize}
+}
+\end{itemize}
+\begin{figure}[htbp]
+    \centering\includegraphics[scale=0.78]{../goexplore.pdf}
+    \caption{Go-Explore方法\citep{Ecoffet2019GoExploreAN}}
+\end{figure}
+\end{frame}
+
+\begin{frame}\frametitle{TDC+CMC}
+\begin{itemize}
+\item Google团队利用人类玩家玩蒙特祖玛复仇的YouTube多版本在线录像来训练AI\citep{Aytar2018PlayingHE}
+{
+\begin{itemize}
+\item 自监督学习方式对齐不同录像
+\item TDC~~画面时间差预测(\textbf{T}emporal \textbf{d}istance \textbf{c}lassification)
+\item CMC~~画面与声音对齐的跨模态时间差预测(\textbf{C}ross-\textbf{m}odal temporal distance \textbf{c}lassification)
+\end{itemize}
+}
+\end{itemize}
+\begin{figure}[htbp]
+    \centering\includegraphics[scale=0.7]{../youtube2.pdf}
+	    \caption{学习表征将不同画面在表征空间中对齐}
+\end{figure}
+\end{frame}
+
+\begin{frame}\frametitle{TDC+CMC}
+        \begin{figure}[htbp]
+            \centering\includegraphics[scale=0.75]{../youtube3.pdf}
+	    \caption{基于YouTube示例录像的模仿学习神经网络模型}
+        \end{figure}
+\end{frame}
+
+\begin{frame}\frametitle{LfSD}
+\begin{itemize}
+\item LfSD\citep{Salimans2018LearningMR}不断重新设置出发点，将长期规划任务拆分成多个子任务
+\end{itemize}
+\begin{figure}[htbp]
+    \centering\includegraphics[scale=0.46]{../mrsingledem.pdf}
+\caption{逐步后置起始点从而引导智能体学习到更长的行动路径}
+\end{figure}
+\end{frame}
+
+\begin{frame}\frametitle{R2D3}
+\begin{itemize}
+\item R2D3\citep{Paine2020MakingEU}
+{
+\begin{itemize}
+\item 多个actor进程并行采样
+\item 所有actor进程共享经验缓冲池
+\item 全局learner运行Double DQN网络
+\item 示例经验和actor采样经验按比例($\rho$)混合
+\end{itemize}
+}
+\end{itemize}
+        \begin{figure}[htbp]
+            \centering\includegraphics[scale=0.5]{../r2d3.pdf}
+	    \caption{Recurrent Replay Distributed DQN from Demonstrations(R2D3)框架}
+        \end{figure}
+\end{frame}
+
+\begin{frame}\frametitle{Bootstrapped DQN}
+\begin{itemize}
+\item Bootstrapped DQN\citep{osband2016deep}
+{
+\begin{itemize}
+\item 同时学习关于$(s,a)$的$K \in \mathbb{N}$个$Q$值来近似建模出$Q$值分布
+\item 多个$Q$值网络共享一部分参数
+\item 动作选取呈现出受$Q$值分布影响的探索效果
+\end{itemize}
+}
+\end{itemize}
+\begin{figure}[htbp]
+    \centering\includegraphics[scale=0.7]{../bootstrapeddqn.pdf}
+	\caption{Bootstrapped DQN架构}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}\frametitle{VIME}
+\begin{itemize}
+\item VIME\citep{Houthooft2016VIMEVI}是基于变分信息最大化的探索方法
+\item 智能体连续决策并降低环境的不确定性，形式化为最大化在$\left\{a_{t}\right\}$上的累计熵减
+\begin{align*}
+        \sum_{t}\left(H\left(\theta \vert \xi_{t}, a_{t}\right)-H\left(\theta \vert s_{t+1}, \xi_{t}, a_{t}\right)\right)
+\end{align*}
+\item 定义增强奖赏
+\begin{align*}
+    \eta D_{\mathrm{KL}}\left[p\left(\theta \vert \xi_{t}, a_{t}, s_{t+1}\right) \| p\left(\theta \vert \xi_{t}\right)\right]
+\end{align*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{DQN-CTS}
+\begin{itemize}
+\item UCB类方法中引入状态计数或状态-动作对的计数$\hat{N}(s)$度量不确定性，并依据计数构造增强奖赏$\mathcal{B}(\hat{N}(s))$
+\begin{align*}
+    r^{+}(s)=r_{i}(s)+\mathcal{B}(\hat{N}(s))
+\end{align*}
+\end{itemize}
+\begin{columns}
+\column{.33\textwidth}
+\begin{align*}
+\sqrt{\frac{2 \ln T}{\hat{N}(s)}}
+\end{align*}
+UCB1\\ \citep{Auer2002FinitetimeAO}
+\column{.33\textwidth}
+\begin{align*}
+    \sqrt{\frac{1}{\hat{N}(s)}}
+\end{align*}
+MBIE-EB\\ \citep{Strehl2008AnAO}
+\column{.33\textwidth}
+\begin{align*}
+    \frac{1}{\hat{N}(s)}
+\end{align*}
+BEB\\ \citep{Kolter2009RegularizationAF}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}\frametitle{DQN-CTS}
+\begin{itemize}
+\item \citep{Bellemare2016}证明虚拟计数$\hat{N}_{n}(x)$和$\mathrm{IG}$与$\mathrm{PG}$之间的关系
+        \begin{align*}
+            \hat{N}_{n}(x) &\approx\left(e^{\mathrm{PG}_{n}(x)}-1\right)^{-1}\\
+            I G_{n}(x) &\leq P G_{n}(x) \leq \hat{N}_{n}(x)^{-1}\\
+            P G_{n}(x) &\leq \hat{N}_{n}(x)^{-1 / 2}
+        \end{align*}
+\item Information Gain($\mathrm{IG}$)
+        \begin{align*}
+            \mathrm{IG}_{n}(x):=\mathrm{IG}\left(x ; x_{1: n}\right):=\mathrm{KL}\left(w_{n}(\cdot, x) \| w_{n}\right)
+        \end{align*}
+\item Prediction Gain($\mathrm{PG}$)
+        \begin{align*}
+            \mathrm{PG}_{n}(x):=\log \rho_{n}^{\prime}(x)-\log \rho_{n}(x)
+        \end{align*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{DQN-PixelCNN}
+\begin{itemize}
+\item \citep{ostrovski2017count}以Pixel-CNN作神经网络密度模型
+\item 定义增强奖赏
+\begin{align*}
+            r^{+}(x)&:=\left(\hat{\mathrm{N}}_{n}(x)\right)^{-1 / 2}\\
+            \hat{\mathrm{N}}_{n}(x) &\approx\left(e^{\mathrm{PG}_{n}(x)}-1\right)^{-1}
+\end{align*}
+\end{itemize}
+\end{frame}
+
+
+\section{总结与展望}
+
+\begin{frame}\frametitle{Montezuma's Revenge}
+\resizebox{.6\linewidth}{!}{
+    \begin{minipage}{\linewidth}
+\begin{table}[]
+\begin{tabular}{|l|l|l|}
+\hline
+算法                                                                      & 文献 & Montezuma's Revenge \\ \hline
+SARSA                                                                   &  \citep{Mnih2015HumanlevelCT}\citep{Bellemare2012InvestigatingCA}  & 259                 \\ \hline
+DQN                                                                     &  \citep{Mnih2015HumanlevelCT}\citep{Wang2016DuelingNA}  & 0                   \\ \hline
+DDQN                                                                    &  \citep{Hasselt2016DeepRL}\citep{Wang2016DuelingNA}  & 42                  \\ \hline
+Duel. DQN                                                               &  \citep{Wang2016DuelingNA}  & 22                  \\ \hline
+Prior. DQN                                                              &  \citep{Schaul2016PrioritizedER}  & 13                  \\ \hline
+A3C                                                                     & \citep{Mnih2016AsynchronousMF}   & 67                  \\ \hline
+DQN-CTS                                                                 &  \citep{Bellemare2016UnifyingCE}  & 3705                \\ \hline
+DQN-PixelCNN                                                            & \citep{ostrovski2017count}   & 2514                \\ \hline
+Rainbow                                                                 &  \citep{Hessel2018RainbowCI}  & 154                 \\ \hline
+RND                                                                     &  \citep{Burda2019ExplorationBR}  & 11347               \\ \hline
+Go-Explore                                                              &  \citep{Ecoffet2019GoExploreAN}  & 43763               \\ \hline
+\begin{tabular}[c]{@{}l@{}}Go-Explore\\ (domain knowledge)\end{tabular} & \citep{Ecoffet2019GoExploreAN}   & 666474              \\ \hline
+Go-Explore (best)                                                       &  \citep{Ecoffet2019GoExploreAN}  & 18003200            \\ \hline
+LfSD (best)                                                             &  \citep{Salimans2018LearningMR}  & 74500               \\ \hline
+TDC+CMC                                                                 &  \citep{Aytar2018PlayingHE}  & 41098               \\ \hline
+Average Human                                                           &  \citep{Pohlen2018ObserveAL}  & 4753                \\ \hline
+Human Expert                                                            &  \citep{Pohlen2018ObserveAL}  & 34900               \\ \hline
+Human World Record                                                      &  \citep{atariscore}  & 1219200             \\ \hline
+\end{tabular}
+\end{table}
+        \end{minipage}
+}
+\end{frame}
+
+\begin{frame}\frametitle{有意进一步深入研究的问题}
+\begin{itemize}
+\item 深度强化学习“探索与利用”方法应用
+\item $\gamma$如何影响价值函数的研究
+\item 策略优化算子($\operatorname{\max}, \operatorname{softmax}$)
+\item 从优化角度深入理解策略梯度类算法的探索技巧
+\end{itemize}
+\end{frame}
+
+%%------------------------------------------
+\end{CJK*}
+\newpage
+\tiny
+\bibliographystyle{unsrtnat}
+\bibliography{ref}
+\end{document}

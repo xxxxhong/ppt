@@ -1,0 +1,34 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: ppt.aux
+The style file: unsrtnat.bst
+Database file #1: ref.bib
+I was expecting a `,' or a `}'---line 107 of file ref.bib
+ :     
+ :     year={2018}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Repeated entry---line 599 of file ref.bib
+ : @article{Pitis2019RethinkingTD
+ :                               ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 607 of file ref.bib
+ : @article{Amit2020DiscountFA
+ :                            ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 615 of file ref.bib
+ : @inproceedings{Asadi2017AnAS
+ :                             ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 622 of file ref.bib
+ : @article{Pan2019ReinforcementLW
+ :                                ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 630 of file ref.bib
+ : @inproceedings{Littman1996AGR
+ :                              ,
+I'm skipping whatever remains of this entry
+Warning--empty journal in casella2007statistical
+Warning--empty year in bayesianupdate
+Warning--empty year in Hoeffdingnotes
+Warning--empty school in liangpengzhang2019
+Warning--empty year in atariscore
+(There were 6 error messages)

@@ -1,0 +1,45 @@
+\begin{frame}\frametitle{随机策略梯度定理}
+\resizebox{.68\linewidth}{!}{
+    \begin{minipage}{\linewidth}
+        \begin{align*}
+            \nabla V^{\pi}(s) &=\nabla\left[\sum_{a} \pi(s,a;\theta) Q^{\pi}(s, a)\right], \quad \text {对所有} s \in S \\
+            &=\sum_{a}\left[\nabla \pi(s,a;\theta) Q^{\pi}(s, a)+\pi(s,a;\theta) \nabla Q^{\pi}(s, a)\right]\\
+            &=\sum_{a}\left[\nabla \pi(s,a;\theta) Q^{\pi}(s, a)+\pi(s,a;\theta) \nabla \sum_{s^{\prime}} P\left(s, a,s^{\prime}\right)\left[r(s,a,s^{\prime})+\gamma V^{\pi}\left(s^{\prime}\right)\right]\right]\\
+            &=\sum_{a}\left[\nabla \pi(s,a;\theta) Q^{\pi}(s, a)+\gamma \pi(s,a;\theta) \sum_{s^{\prime}} P\left(s, a,s^{\prime} \right)  \underbrace{\nabla V^{\pi}\left(s^{\prime}\right)}_{\text{递推展开}}\right]\\
+            &=\sum_{a}\left[\nabla \pi(s,a;\theta) Q^{\pi}(s, a)+\gamma \pi(s,a;\theta) \sum_{s^{\prime}} P\left(s, a,s^{\prime} \right) \times \right.\\
+            &~~~~\left. \underbrace{\sum_{a'}[\nabla \pi(s',a';\theta)Q^{\pi}(s',a')+\gamma \pi(s',a';\theta)\sum_{s''}P(s',a',s'')\nabla V^{\pi}(s'') ]}\right]\\
+            &=\dots\\
+            &=\sum_{x}\sum_{k=0}(\gamma T^{\pi})^{(k)}_{s\rightarrow x}\sum_{a}\left[\nabla \pi(x,a;\theta)Q^{\pi}(x,a)\right]\\
+            &=\sum_{x}\sum_{k=0}(\gamma T^{\pi})^{(k)}_{s\rightarrow x}\sum_{a}\left[\frac{\nabla \pi(x,a;\theta)}{\pi(x,a;\theta)}\pi(x,a;\theta)Q^{\pi}(x,a)\right]\\
+	        &=\sum_{x}\sum_{k=0}(\gamma T^{\pi})^{(k)}_{s\rightarrow x}\mathbb{E}_{\pi}\left[Q^{\pi}(x,a)\nabla \log \pi(x,a;\theta)\right]
+        \end{align*}
+    \end{minipage}
+}
+\end{frame}
+
+\begin{frame}\frametitle{随机策略梯度定理}
+        \begin{align*}
+          \sum_{k=0}(\gamma T^{\pi})^{(k)}_{s\rightarrow x} &\approx \bar{\operatorname{freq}}(x)=\frac{\sum_{k=0}\operatorname{FREQ}^{k}(x)}{m}
+        \end{align*}
+
+        \begin{figure}[htbp]
+            \centering\includegraphics[scale=.35]{../reinforce1.pdf}
+	    \caption{从某一状态出发游走产生若干条轨迹}
+        \end{figure}
+\end{frame}
+
+
+\begin{frame}\frametitle{随机策略梯度定理}
+\resizebox{.7\linewidth}{!}{
+    \begin{minipage}{\linewidth}
+        \begin{align*}
+          \nabla V^{\pi}(s) &=\sum_{x}\sum_{k=0}(\gamma T^{\pi})^{(k)}_{s\rightarrow x}\mathbb{E}_{a\sim \pi}\left[Q^{\pi}(x,a)\nabla \log \pi(x,a;\theta)\right]\\
+          &\approx \sum_{x}\underbrace{\bar{\operatorname{freq}}(x)}_\text{依据$\gamma T^{\pi}$}\mathbb{E}_{\pi}\left[Q^{\pi}(x,a)\nabla \log \pi(x,a;\theta)\right]\\
+          &= \sum_{x}\underbrace{\frac{\sum_{k=0}\operatorname{FREQ}^{k}(x)}{m}}_{\text{依据$\gamma T^{\pi}$}}\mathbb{E}_{\pi}\left[Q^{\pi}(x,a)\nabla \log \pi(x,a;\theta)\right]\\
+          &= \frac{1}{m}\sum_{x}\underbrace{\sum_{k=0}\operatorname{FREQ}^{k}(x)}_{\text{依据$\gamma T^{\pi}$}}\mathbb{E}_{\pi}\left[Q^{\pi}(x,a)\nabla \log \pi(x,a;\theta)\right]\\
+          &= \frac{1}{m}\sum_{x}\sum_{k=0}\gamma^k\underbrace{\frac{1}{\gamma^k}\operatorname{FREQ}^{k}(x)}_{\text{依据$T^{\pi}$从$s$出发经$k$步到$x$ 的频次}}\mathbb{E}_{\pi}\left[Q^{\pi}(x,a)\nabla \log \pi(x,a;\theta)\right]\\
+          &\approx \underbrace{\frac{1}{m}\sum_{i=1}^{m}\sum_{k=0}^{H_{i}}\left[\gamma^k Q(x,a)\nabla \log \pi(x,a ; \theta)|s\stackrel{(k)}{\longrightarrow}x\right]}_{\text{依据}T^{\pi}\text{且从}s\text{出发}}
+        \end{align*}
+    \end{minipage}
+}
+\end{frame}

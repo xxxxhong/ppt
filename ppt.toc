@@ -1,0 +1,7 @@
+\beamer@sectionintoc {1}{背景知识}{3}{0}{1}
+\beamer@sectionintoc {2}{研究动机}{13}{0}{2}
+\beamer@sectionintoc {3}{相关数学基础}{18}{0}{3}
+\beamer@sectionintoc {4}{强化学习算法}{20}{0}{4}
+\beamer@sectionintoc {5}{“探索与利用”概述}{28}{0}{5}
+\beamer@sectionintoc {6}{强化学习中的“探索与利用”方法}{37}{0}{6}
+\beamer@sectionintoc {7}{总结与展望}{64}{0}{7}

@@ -1,0 +1,415 @@
+\begin{thebibliography}{62}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Sutton and Barto(2018)]{sutton2018reinforcement}
+Richard~S Sutton and Andrew~G Barto.
+\newblock \emph{Reinforcement learning: An introduction}.
+\newblock MIT press, 2018.
+
+\bibitem[Amit et~al.(2020)Amit, Meir, and Ciosek]{Amit2020DiscountFA}
+Ron Amit, R.~Meir, and K.~Ciosek.
+\newblock Discount factor as a regularizer in reinforcement learning.
+\newblock \emph{ArXiv}, abs/2007.02040, 2020.
+
+\bibitem[Pitis(2019)]{Pitis2019RethinkingTD}
+Silviu Pitis.
+\newblock Rethinking the discount factor in reinforcement learning: A decision
+  theoretic approach.
+\newblock \emph{ArXiv}, abs/1902.02893, 2019.
+
+\bibitem[Littman and Szepesvari(1996)]{Littman1996AGR}
+M.~Littman and Csaba Szepesvari.
+\newblock A generalized reinforcement-learning model: Convergence and
+  applications.
+\newblock In \emph{ICML}, 1996.
+
+\bibitem[Asadi and Littman(2017)]{Asadi2017AnAS}
+Kavosh Asadi and M.~Littman.
+\newblock An alternative softmax operator for reinforcement learning.
+\newblock In \emph{ICML}, 2017.
+
+\bibitem[Pan et~al.(2019)Pan, Cai, Meng, Chen, Huang, and
+  Liu]{Pan2019ReinforcementLW}
+L.~Pan, Qingpeng Cai, Q.~Meng, Wei Chen, Longbo Huang, and T.~Liu.
+\newblock Reinforcement learning with dynamic boltzmann softmax updates.
+\newblock \emph{ArXiv}, abs/1903.05926, 2019.
+
+\bibitem[Schulman et~al.(2015)Schulman, Levine, Abbeel, Jordan, and
+  Moritz]{Schulman2015TrustRP}
+John Schulman, Sergey Levine, Pieter Abbeel, Michael~I. Jordan, and Philipp
+  Moritz.
+\newblock Trust region policy optimization.
+\newblock In \emph{ICML}, 2015.
+
+\bibitem[Wu et~al.(2017)Wu, Mansimov, Grosse, Liao, and Ba]{Wu2017ScalableTM}
+Yuhuai Wu, Elman Mansimov, Roger~B. Grosse, Shun Liao, and Jimmy Ba.
+\newblock Scalable trust-region method for deep reinforcement learning using
+  kronecker-factored approximation.
+\newblock \emph{ArXiv}, abs/1708.05144, 2017.
+
+\bibitem[Mnih et~al.(2015)Mnih, Kavukcuoglu, Silver, Rusu, Veness, Bellemare,
+  Graves, Riedmiller, Fidjeland, Ostrovski, Petersen, Beattie, Sadik,
+  Antonoglou, King, Kumaran, Wierstra, Legg, and
+  Hassabis]{Mnih2015HumanlevelCT}
+Volodymyr Mnih, Koray Kavukcuoglu, David Silver, Andrei~A. Rusu, Joel Veness,
+  Marc~G. Bellemare, Alex Graves, Martin~A. Riedmiller, Andreas~K. Fidjeland,
+  Georg Ostrovski, Stig Petersen, Charles Beattie, Amir Sadik, Ioannis
+  Antonoglou, Helen. King, Dharshan Kumaran, Daan Wierstra, Shane Legg, and
+  Demis Hassabis.
+\newblock Human-level control through deep reinforcement learning.
+\newblock \emph{Nature}, 518:\penalty0 529--533, 2015.
+
+\bibitem[Silver et~al.(2017)Silver, Schrittwieser, Simonyan, Antonoglou, Huang,
+  Guez, Hubert, Baker, Lai, Bolton, Chen, Lillicrap, Hui, Sifre, van~den
+  Driessche, Graepel, and Hassabis]{Silver2017MasteringTG}
+D.~Silver, Julian Schrittwieser, K.~Simonyan, Ioannis Antonoglou, Aja Huang,
+  A.~Guez, T.~Hubert, L.~Baker, Matthew Lai, A.~Bolton, Yutian Chen,
+  T.~Lillicrap, F.~Hui, L.~Sifre, George van~den Driessche, T.~Graepel, and
+  Demis Hassabis.
+\newblock Mastering the game of go without human knowledge.
+\newblock \emph{Nature}, 550:\penalty0 354--359, 2017.
+
+\bibitem[Burda et~al.(2019)Burda, Edwards, Storkey, and
+  Klimov]{Burda2019ExplorationBR}
+Yuri Burda, Harrison~A Edwards, Amos~J. Storkey, and Oleg Klimov.
+\newblock Exploration by random network distillation.
+\newblock \emph{ArXiv}, abs/1810.12894, 2019.
+
+\bibitem[He(2008)]{sp2008heshuyuan}
+Shuyuan He.
+\newblock \emph{Stochastic Process(in Chinese)}.
+\newblock Peking University Press, 2008.
+
+\bibitem[Kang(2015)]{kangconglu2015}
+Conglu Kang.
+\newblock \emph{Theory and Applications of Monte Carlo Methods(in Chinese)}.
+\newblock Science Press, 2015.
+
+\bibitem[Fang et~al.(2013)Fang, Zhou, and Li]{matrix2013fang}
+Baorong Fang, Jidong Zhou, and Yimin Li.
+\newblock \emph{Matrix(in Chinese)}.
+\newblock Tsinghua University Press, 2013.
+
+\bibitem[Casella and Berger(2007)]{casella2007statistical}
+George Casella and Roger~L. Berger.
+\newblock Statistical inference second edition.
+\newblock 2007.
+
+\bibitem[Downey(2013)]{thinkbayes2013}
+Allen~B. Downey.
+\newblock \emph{Think Bayes: Bayesian Statistics in Python}.
+\newblock O'Reilly Media, 2013.
+
+\bibitem[Orloff and Bloom()]{bayesianupdate}
+Jeremy Orloff and Jonathan Bloom.
+\newblock Bayesian updating with continuous priors.
+\newblock
+  https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/readings/MIT18\_05S14\_Reading13a.pdf.
+
+\bibitem[Duchi()]{Hoeffdingnotes}
+John Duchi.
+\newblock Supplemental lecture notes hoeffding's inequality.
+\newblock http://cs229.stanford.edu/extra-notes/hoeffding.pdf.
+
+\bibitem[Q. et~al.(2006)Q., Cover, and Thomas]{2006Elements}
+C~Q., Thomas~M. Cover, and Joy~A. Thomas.
+\newblock Elements of information theory.
+\newblock \emph{Publications of the American Statal Association}, 103\penalty0
+  (481):\penalty0 429--429, 2006.
+
+\bibitem[Gao(2014)]{Gaoli2014numoptimize}
+Li~Gao.
+\newblock \emph{Numerical Optimization Method(in Chinese)}.
+\newblock Peking University Press, 2014.
+
+\bibitem[van Hasselt et~al.(2016)van Hasselt, Guez, and
+  Silver]{Hasselt2016DeepRL}
+Hado van Hasselt, Arthur Guez, and David Silver.
+\newblock Deep reinforcement learning with double q-learning.
+\newblock In \emph{AAAI}, 2016.
+
+\bibitem[Schaul et~al.(2016)Schaul, Quan, Antonoglou, and
+  Silver]{Schaul2016PrioritizedER}
+Tom Schaul, John Quan, Ioannis Antonoglou, and David Silver.
+\newblock Prioritized experience replay.
+\newblock \emph{CoRR}, abs/1511.05952, 2016.
+
+\bibitem[Wang et~al.(2016)Wang, Schaul, Hessel, van Hasselt, Lanctot, and
+  de~Freitas]{Wang2016DuelingNA}
+Ziyu Wang, Tom Schaul, Matteo Hessel, Hado van Hasselt, Marc Lanctot, and Nando
+  de~Freitas.
+\newblock Dueling network architectures for deep reinforcement learning.
+\newblock \emph{ArXiv}, abs/1511.06581, 2016.
+
+\bibitem[Hessel et~al.(2018)Hessel, Modayil, Hasselt, Schaul, Ostrovski,
+  Dabney, Horgan, Piot, Azar, and Silver]{Hessel2018RainbowCI}
+Matteo Hessel, Joseph Modayil, H.~V. Hasselt, T.~Schaul, Georg Ostrovski,
+  W.~Dabney, Dan Horgan, B.~Piot, Mohammad~Gheshlaghi Azar, and D.~Silver.
+\newblock Rainbow: Combining improvements in deep reinforcement learning.
+\newblock \emph{ArXiv}, abs/1710.02298, 2018.
+
+\bibitem[Sutton et~al.(2000)Sutton, McAllester, Singh, and
+  Mansour]{NIPS19991713}
+Richard~S Sutton, David~A. McAllester, Satinder~P. Singh, and Yishay Mansour.
+\newblock Policy gradient methods for reinforcement learning with function
+  approximation.
+\newblock In S.~A. Solla, T.~K. Leen, and K.~M\"{u}ller, editors,
+  \emph{Advances in Neural Information Processing Systems 12}, pages
+  1057--1063. MIT Press, 2000.
+\newblock URL
+  \url{http://papers.nips.cc/paper/1713-policy-gradient-methods-for-reinforcement-learning-with-function-approximation.pdf}.
+
+\bibitem[Mnih et~al.(2016)Mnih, Badia, Mirza, Graves, Lillicrap, Harley,
+  Silver, and Kavukcuoglu]{Mnih2016AsynchronousMF}
+Volodymyr Mnih, Adri{\`a}~Puigdom{\`e}nech Badia, Mehdi Mirza, Alex Graves,
+  Timothy~P. Lillicrap, Tim Harley, David Silver, and Koray Kavukcuoglu.
+\newblock Asynchronous methods for deep reinforcement learning.
+\newblock In \emph{ICML}, 2016.
+
+\bibitem[Silver et~al.(2014)Silver, Lever, Heess, Degris, Wierstra, and
+  Riedmiller]{Silver2014DeterministicPG}
+David Silver, Guy Lever, Nicolas Manfred~Otto Heess, Thomas Degris, Daan
+  Wierstra, and Martin~A. Riedmiller.
+\newblock Deterministic policy gradient algorithms.
+\newblock In \emph{ICML}, 2014.
+
+\bibitem[Lillicrap et~al.(2015)Lillicrap, Hunt, Pritzel, Heess, Erez, Tassa,
+  Silver, and Wierstra]{Lillicrap2015ContinuousCW}
+Timothy~P. Lillicrap, Jonathan~J. Hunt, Alexander Pritzel, Nicolas Manfred~Otto
+  Heess, Tom Erez, Yuval Tassa, David Silver, and Daan Wierstra.
+\newblock Continuous control with deep reinforcement learning.
+\newblock \emph{CoRR}, abs/1509.02971, 2015.
+
+\bibitem[Schulman et~al.(2017)Schulman, Wolski, Dhariwal, Radford, and
+  Klimov]{Schulman2017ProximalPO}
+John Schulman, Filip Wolski, Prafulla Dhariwal, Alec Radford, and Oleg Klimov.
+\newblock Proximal policy optimization algorithms.
+\newblock \emph{ArXiv}, abs/1707.06347, 2017.
+
+\bibitem[Levine(2018)]{Levinecs294}
+Sergey Levine.
+\newblock Deep reinforcement learning.
+\newblock \url{http://rail.eecs.berkeley.edu/deeprlcourse-fa18/}, 2018.
+
+\bibitem[Zhang(2019)]{liangpengzhang2019}
+Liangpeng Zhang.
+\newblock \emph{Sample Efficiency in Reinforcement Learning}.
+\newblock PhD thesis, 2019.
+
+\bibitem[Agarwal(2013)]{stochasticmab}
+Shivani Agarwal.
+\newblock Stochastic multi armed bandits.
+\newblock
+  \url{https://www.shivani-agarwal.net/Teaching/E0370/Aug-2013/Lectures/22.pdf},
+  2013.
+
+\bibitem[Auer et~al.(2002)Auer, Cesa-Bianchi, and
+  Fischer]{Auer2002FinitetimeAO}
+Peter Auer, Nicol{\`o} Cesa-Bianchi, and Paul Fischer.
+\newblock Finite-time analysis of the multiarmed bandit problem.
+\newblock \emph{Machine Learning}, 47:\penalty0 235--256, 2002.
+
+\bibitem[Chapelle and Li(2011)]{Chapelle2011AnEE}
+Olivier Chapelle and Lihong Li.
+\newblock An empirical evaluation of thompson sampling.
+\newblock In \emph{NIPS}, 2011.
+
+\bibitem[{Vanderplas} et~al.(2012){Vanderplas}, {Connolly}, {Ivezi{\'c}}, and
+  {Gray}]{astroML}
+J.T. {Vanderplas}, A.J. {Connolly}, {\v Z}.~{Ivezi{\'c}}, and A.~{Gray}.
+\newblock Introduction to astroml: Machine learning for astrophysics.
+\newblock In \emph{Conference on Intelligent Data Understanding (CIDU)}, pages
+  47 --54, oct. 2012.
+\newblock \doi{10.1109/CIDU.2012.6382200}.
+
+\bibitem[Russo and Roy(2014)]{Russo2014LearningTO}
+Daniel Russo and Benjamin~Van Roy.
+\newblock Learning to optimize via information-directed sampling.
+\newblock \emph{ArXiv}, abs/1403.5556, 2014.
+
+\bibitem[Weng(2020)]{weng2020exploration}
+Lilian Weng.
+\newblock Exploration strategies in deep reinforcement learning.
+\newblock \emph{lilianweng.github.io/lil-log}, 2020.
+\newblock URL
+  \url{https://lilianweng.github.io/lil-log/2020/06/07/exploration-strategies-in-deep-reinforcement-learning.html}.
+
+\bibitem[Pathak et~al.(2017)Pathak, Agrawal, Efros, and
+  Darrell]{Pathak2017CuriosityDrivenEB}
+Deepak Pathak, Pulkit Agrawal, Alexei~A. Efros, and Trevor Darrell.
+\newblock Curiosity-driven exploration by self-supervised prediction.
+\newblock \emph{2017 IEEE Conference on Computer Vision and Pattern Recognition
+  Workshops (CVPRW)}, pages 488--489, 2017.
+
+\bibitem[Pathak et~al.(2019)Pathak, Gandhi, and
+  Gupta]{pathak2019selfsupervised}
+Deepak Pathak, Dhiraj Gandhi, and Abhinav Gupta.
+\newblock Self-supervised exploration via disagreement, 2019.
+
+\bibitem[Choshen et~al.(2018)Choshen, Fox, and Loewenstein]{Choshen2018DORATE}
+Leshem Choshen, Lior Fox, and Yonatan Loewenstein.
+\newblock Dora the explorer: Directed outreaching reinforcement
+  action-selection.
+\newblock \emph{ArXiv}, abs/1804.04012, 2018.
+
+\bibitem[Savinov et~al.(2019)Savinov, Raichuk, Marinier, Vincent, Pollefeys,
+  Lillicrap, and Gelly]{Savinov2019EpisodicCT}
+Nikolay Savinov, Anton Raichuk, Raphael Marinier, Damien Vincent, Marc
+  Pollefeys, Timothy~P. Lillicrap, and Sylvain Gelly.
+\newblock Episodic curiosity through reachability.
+\newblock \emph{ArXiv}, abs/1810.02274, 2019.
+
+\bibitem[Tang et~al.(2017)Tang, Houthooft, Foote, Stooke, Chen, Duan, Schulman,
+  Turck, and Abbeel]{Tang2017ExplorationAS}
+Haoran Tang, Rein Houthooft, Davis Foote, Adam Stooke, Xi~Chen, Yan Duan, John
+  Schulman, Filip~De Turck, and Pieter Abbeel.
+\newblock Exploration: A study of count-based exploration for deep
+  reinforcement learning.
+\newblock \emph{ArXiv}, abs/1611.04717, 2017.
+
+\bibitem[Haarnoja et~al.(2017)Haarnoja, Tang, Abbeel, and
+  Levine]{Haarnoja2017ReinforcementLW}
+Tuomas Haarnoja, Haoran Tang, Pieter Abbeel, and Sergey Levine.
+\newblock Reinforcement learning with deep energy-based policies.
+\newblock \emph{ArXiv}, abs/1702.08165, 2017.
+
+\bibitem[Haarnoja et~al.(2018)Haarnoja, Zhou, Abbeel, and
+  Levine]{Haarnoja2018SoftAO}
+Tuomas Haarnoja, Aurick Zhou, Pieter Abbeel, and Sergey Levine.
+\newblock Soft actor-critic: Off-policy maximum entropy deep reinforcement
+  learning with a stochastic actor.
+\newblock In \emph{ICML}, 2018.
+
+\bibitem[Fortunato et~al.(2018)Fortunato, Azar, Piot, Menick, Osband, Graves,
+  Mnih, Munos, Hassabis, Pietquin, Blundell, and Legg]{Fortunato2018NoisyNF}
+Meire Fortunato, Mohammad~Gheshlaghi Azar, Bilal Piot, Jacob Menick, Ian
+  Osband, Alex Graves, Vlad Mnih, R{\'e}mi Munos, Demis Hassabis, Olivier
+  Pietquin, Charles Blundell, and Shane Legg.
+\newblock Noisy networks for exploration.
+\newblock \emph{ArXiv}, abs/1706.10295, 2018.
+
+\bibitem[Plappert et~al.(2017)Plappert, Houthooft, Dhariwal, Sidor, Chen, Chen,
+  Asfour, Abbeel, and Andrychowicz]{Plappert2017ParameterSN}
+Matthias Plappert, Rein Houthooft, Prafulla Dhariwal, Szymon Sidor, Richard~Y.
+  Chen, Xi~Chen, Tamim Asfour, Pieter Abbeel, and Marcin Andrychowicz.
+\newblock Parameter space noise for exploration.
+\newblock \emph{ArXiv}, abs/1706.01905, 2017.
+
+\bibitem[Andrychowicz et~al.(2017)Andrychowicz, Crow, Ray, Schneider, Fong,
+  Welinder, McGrew, Tobin, Abbeel, and Zaremba]{Andrychowicz2017HindsightER}
+Marcin Andrychowicz, Dwight Crow, Alex Ray, Jonas Schneider, Rachel~H Fong,
+  Peter Welinder, Bob McGrew, Josh Tobin, Pieter Abbeel, and Wojciech Zaremba.
+\newblock Hindsight experience replay.
+\newblock \emph{ArXiv}, abs/1707.01495, 2017.
+
+\bibitem[Bengio et~al.(2009)Bengio, Louradour, Collobert, and
+  Weston]{Bengio2009Curriculum}
+Yoshua Bengio, J¨¦r?me Louradour, Ronan Collobert, and Jason Weston.
+\newblock Curriculum learning.
+\newblock In \emph{Proceedings of the 26th Annual International Conference on
+  Machine Learning, ICML 2009, Montreal, Quebec, Canada, June 14-18, 2009},
+  2009.
+
+\bibitem[Ecoffet et~al.(2019)Ecoffet, Huizinga, Lehman, Stanley, and
+  Clune]{Ecoffet2019GoExploreAN}
+Adrien Ecoffet, Joost Huizinga, Joel Lehman, Kenneth~O. Stanley, and Jeff
+  Clune.
+\newblock Go-explore: a new approach for hard-exploration problems.
+\newblock \emph{ArXiv}, abs/1901.10995, 2019.
+
+\bibitem[Aytar et~al.(2018)Aytar, Pfaff, Budden, Paine, Wang, and
+  de~Freitas]{Aytar2018PlayingHE}
+Yusuf Aytar, Tobias Pfaff, David Budden, Thomas Paine, Ziyu Wang, and Nando
+  de~Freitas.
+\newblock Playing hard exploration games by watching youtube.
+\newblock In \emph{NeurIPS}, 2018.
+
+\bibitem[Salimans and Chen(2018)]{Salimans2018LearningMR}
+Tim Salimans and Richard Chen.
+\newblock Learning montezuma's revenge from a single demonstration.
+\newblock \emph{ArXiv}, abs/1812.03381, 2018.
+
+\bibitem[Paine et~al.(2020)Paine, Gulcehre, Shahriari, Denil, Hoffman, Soyer,
+  Tanburn, Kapturowski, Rabinowitz, Williams, Barth-Maron, Wang, de~Freitas,
+  and Team]{Paine2020MakingEU}
+Tom~Le Paine, Caglar Gulcehre, Bobak Shahriari, Misha Denil, Matthew~D.
+  Hoffman, Hubert Soyer, Richard Tanburn, Steven Kapturowski, Neil~C.
+  Rabinowitz, D.V.J. Williams, Gabriel Barth-Maron, Ziyu Wang, Nando
+  de~Freitas, and Worlds Team.
+\newblock Making efficient use of demonstrations to solve hard exploration
+  problems.
+\newblock \emph{ArXiv}, abs/1909.01387, 2020.
+
+\bibitem[Osband et~al.(2016)Osband, Blundell, Pritzel, and
+  Van~Roy]{osband2016deep}
+Ian Osband, Charles Blundell, Alexander Pritzel, and Benjamin Van~Roy.
+\newblock Deep exploration via bootstrapped dqn.
+\newblock In \emph{Advances in neural information processing systems}, pages
+  4026--4034, 2016.
+
+\bibitem[Houthooft et~al.(2016)Houthooft, Chen, Duan, Schulman, Turck, and
+  Abbeel]{Houthooft2016VIMEVI}
+Rein Houthooft, Xi~Chen, Yan Duan, John Schulman, Filip~De Turck, and Pieter
+  Abbeel.
+\newblock Vime: Variational information maximizing exploration.
+\newblock In \emph{NIPS}, 2016.
+
+\bibitem[Strehl and Littman(2008)]{Strehl2008AnAO}
+Alexander~L. Strehl and M.~Littman.
+\newblock An analysis of model-based interval estimation for markov decision
+  processes.
+\newblock \emph{J. Comput. Syst. Sci.}, 74:\penalty0 1309--1331, 2008.
+
+\bibitem[Kolter and Ng(2009)]{Kolter2009RegularizationAF}
+J.~Z. Kolter and A.~Ng.
+\newblock Regularization and feature selection in least-squares temporal
+  difference learning.
+\newblock In \emph{ICML '09}, 2009.
+
+\bibitem[Bellemare et~al.(2016{\natexlab{a}})Bellemare, Srinivasan, Ostrovski,
+  Schaul, Saxton, and Munos]{Bellemare2016}
+Marc~G. Bellemare, Sriram Srinivasan, Georg Ostrovski, Tom Schaul, David
+  Saxton, and Remi Munos.
+\newblock Unifying count-based exploration and intrinsic motivation.
+\newblock In \emph{NIPS}, 2016{\natexlab{a}}.
+
+\bibitem[Ostrovski et~al.(2017)Ostrovski, Bellemare, Oord, and
+  Munos]{ostrovski2017count}
+Georg Ostrovski, Marc~G Bellemare, A{\"a}ron Oord, and R{\'e}mi Munos.
+\newblock Count-based exploration with neural density models.
+\newblock In \emph{International Conference on Machine Learning}, pages
+  2721--2730, 2017.
+
+\bibitem[Bellemare et~al.(2012)Bellemare, Veness, and
+  Bowling]{Bellemare2012InvestigatingCA}
+Marc~G. Bellemare, J.~Veness, and Michael Bowling.
+\newblock Investigating contingency awareness using atari 2600 games.
+\newblock In \emph{AAAI}, 2012.
+
+\bibitem[Bellemare et~al.(2016{\natexlab{b}})Bellemare, Srinivasan, Ostrovski,
+  Schaul, Saxton, and Munos]{Bellemare2016UnifyingCE}
+Marc~G. Bellemare, Sriram Srinivasan, Georg Ostrovski, Tom Schaul, David
+  Saxton, and R{\'e}mi Munos.
+\newblock Unifying count-based exploration and intrinsic motivation.
+\newblock In \emph{NIPS}, 2016{\natexlab{b}}.
+
+\bibitem[Pohlen et~al.(2018)Pohlen, Piot, Hester, Azar, Horgan, Budden,
+  Barth-Maron, Hasselt, Quan, Vecer{\'i}k, Hessel, Munos, and
+  Pietquin]{Pohlen2018ObserveAL}
+Tobias Pohlen, B.~Piot, T.~Hester, Mohammad~Gheshlaghi Azar, Dan Horgan,
+  D.~Budden, Gabriel Barth-Maron, H.~V. Hasselt, John Quan, Mel Vecer{\'i}k,
+  Matteo Hessel, R.~Munos, and Olivier Pietquin.
+\newblock Observe and look further: Achieving consistent performance on atari.
+\newblock \emph{ArXiv}, abs/1805.11593, 2018.
+
+\bibitem[ataricompendium()]{atariscore}
+ataricompendium.
+\newblock Atari vcs/2600 scoreboard.
+\newblock
+  \url{http://www.ataricompendium.com/game_library/high_scores/high_scores.html}.
+
+\end{thebibliography}

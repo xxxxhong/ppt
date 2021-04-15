@@ -1,0 +1,733 @@
+@article{Watkins1992Qlearning,
+  title={Q-learning},
+  author={Chris Watkins and Peter Dayan},
+  journal={Machine Learning},
+  year={1992},
+  volume={8},
+  pages={279-292}
+}
+
+@inproceedings{Bengio2009Curriculum,
+  title={Curriculum learning},
+  author={Bengio, Yoshua and Louradour, J®¶r?me and Collobert, Ronan and Weston, Jason},
+  booktitle={Proceedings of the 26th Annual International Conference on Machine Learning, ICML 2009, Montreal, Quebec, Canada, June 14-18, 2009},
+  year={2009},
+}
+
+@incollection{NIPS19991713,
+title = {Policy Gradient Methods for Reinforcement Learning with Function Approximation},
+author = {Sutton, Richard S and David A. McAllester and Satinder P. Singh and Mansour, Yishay},
+booktitle = {Advances in Neural Information Processing Systems 12},
+editor = {S. A. Solla and T. K. Leen and K. M\"{u}ller},
+pages = {1057--1063},
+year = {2000},
+publisher = {MIT Press},
+url = {http://papers.nips.cc/paper/1713-policy-gradient-methods-for-reinforcement-learning-with-function-approximation.pdf}
+}
+
+@inproceedings{Hasselt2010DoubleQ,
+  title={Double Q-learning},
+  author={Hado van Hasselt},
+  booktitle={NIPS},
+  year={2010}
+}
+
+@inproceedings{Silver2014DeterministicPG,
+  title={Deterministic Policy Gradient Algorithms},
+  author={David Silver and Guy Lever and Nicolas Manfred Otto Heess and Thomas Degris and Daan Wierstra and Martin A. Riedmiller},
+  booktitle={ICML},
+  year={2014}
+}
+
+@book{sutton2018reinforcement,
+  title={Reinforcement learning: An introduction},
+  author={Sutton, Richard S and Barto, Andrew G},
+  year={2018},
+  publisher={MIT press}
+}
+
+@article{Singh2000ConvergenceRF,
+  title={Convergence Results for Single-Step On-Policy Reinforcement-Learning Algorithms},
+  author={Satinder P. Singh and Tommi S. Jaakkola and Michael L. Littman and Csaba Szepesvari},
+  journal={Machine Learning},
+  year={2000},
+  volume={38},
+  pages={287-308}
+}
+
+@inproceedings{Osband2016DeepEV,
+  title={Deep Exploration via Bootstrapped DQN},
+  author={Ian Osband and Charles Blundell and Alexander Pritzel and Benjamin Van Roy},
+  booktitle={NIPS},
+  year={2016}
+}
+
+@misc{MontezumasRevenge,
+   author = {Parker Brothers (1984)},
+   title = {Revenge},
+   howpublished = {\url{https://www.retrogames.cz/play_124-Atari2600.php}}
+}
+
+@misc{berkeley2020,
+    author = {Simons Institute, Berkeley},
+    title = {Theory of Reinforcement Learning},
+    howpublished = {\url{https://simons.berkeley.edu/workshops/schedule/14378}}
+}
+
+@misc{glp2020aaaitutorial,
+    author       = {Mohammad Ghavamzadeh and Alessandro Lazaric and Matteo Pirotta},
+    title        = {Exploration in Reinforcement Learning},
+    howpublished = {Tutorial at AAAI'20},
+    year         = {2020},
+    url          = {https://rlgammazero.github.io/},
+}
+
+@INPROCEEDINGS{astroML,
+     author={{Vanderplas}, J.T. and {Connolly}, A.J.
+             and {Ivezi{\'c}}, {\v Z}. and {Gray}, A.},
+     booktitle={Conference on Intelligent Data Understanding (CIDU)},
+     title={Introduction to astroML: Machine learning for astrophysics},
+     month={oct.},
+     pages={47 -54},
+     doi={10.1109/CIDU.2012.6382200},
+     year={2012}
+}
+
+@misc{Levinecs294,
+   author = {Sergey Levine},
+   title = {Deep Reinforcement Learning},
+   howpublished = {\url{http://rail.eecs.berkeley.edu/deeprlcourse-fa18/}},
+   year={2018}
+}
+
+@misc{atariscore,
+    author={ataricompendium.com},
+    title={Atari vcs/2600 scoreboard},
+    howpublished={\url{http://www.ataricompendium.com/game_library/high_scores/high_scores.html}}
+    year={2018}
+
+@article{Pohlen2018ObserveAL,
+  title={Observe and Look Further: Achieving Consistent Performance on Atari},
+  author={Tobias Pohlen and B. Piot and T. Hester and Mohammad Gheshlaghi Azar and Dan Horgan and D. Budden and Gabriel Barth-Maron and H. V. Hasselt and John Quan and Mel Vecer{\'i}k and Matteo Hessel and R. Munos and Olivier Pietquin},
+  journal={ArXiv},
+  year={2018},
+  volume={abs/1805.11593}
+}
+
+@inproceedings{Bellemare2012InvestigatingCA,
+  title={Investigating Contingency Awareness Using Atari 2600 Games},
+  author={Marc G. Bellemare and J. Veness and Michael Bowling},
+  booktitle={AAAI},
+  year={2012}
+}
+
+@article{weng2020exploration,
+  title   = "Exploration Strategies in Deep Reinforcement Learning",
+  author  = "Weng, Lilian",
+  journal = "lilianweng.github.io/lil-log",
+  year    = "2020",
+  url     = "https://lilianweng.github.io/lil-log/2020/06/07/exploration-strategies-in-deep-reinforcement-learning.html"
+}
+
+@misc{bayesianupdate,
+    author = {Jeremy Orloff and Jonathan Bloom},
+    title = {Bayesian Updating with Continuous Priors},
+    howpublished = {https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/readings/MIT18\_05S14\_Reading13a.pdf}
+}
+
+@misc{Hoeffdingnotes,
+    author = {John Duchi},
+    title = {Supplemental Lecture notes Hoeffding's inequality},
+    howpublished = {http://cs229.stanford.edu/extra-notes/hoeffding.pdf}
+}
+
+@article{audibert2009exploration,
+	title = {Exploration-exploitation tradeoff using variance estimates in multi-armed bandits},
+	author = {Jean-Yves {Audibert} and R√©mi {Munos} and Csaba {Szepesv√°ri}},
+	journal = {Theoretical Computer Science},
+	volume = {410},
+	number = {19},
+	pages = {1876--1902},
+	year = {2009}
+}
+
+@article{Silver2017MasteringTG,
+  title={Mastering the game of Go without human knowledge},
+  author={D. Silver and Julian Schrittwieser and K. Simonyan and Ioannis Antonoglou and Aja Huang and A. Guez and T. Hubert and L. Baker and Matthew Lai and A. Bolton and Yutian Chen and T. Lillicrap and F. Hui and L. Sifre and George van den Driessche and T. Graepel and Demis Hassabis},
+  journal={Nature},
+  year={2017},
+  volume={550},
+  pages={354-359}
+}
+
+@article{Vinyals2019GrandmasterLI,
+  title={Grandmaster level in StarCraft II using multi-agent reinforcement learning},
+  author={Oriol Vinyals and I. Babuschkin and W. Czarnecki and Micha{\"e}l Mathieu and A. Dudzik and J. Chung and D. Choi and R. Powell and Timo Ewalds and P. Georgiev and Junhyuk Oh and Dan Horgan and Manuel Kroiss and Ivo Danihelka and Aja Huang and L. Sifre and Trevor Cai and John P. Agapiou and Max Jaderberg and A. S. Vezhnevets and R{\'e}mi Leblond and Tobias Pohlen and Valentin Dalibard and D. Budden and Yury Sulsky and James Molloy and T. L. Paine and Caglar Gulcehre and Ziyu Wang and T. Pfaff and Yuhuai Wu and Roman Ring and Dani Yogatama and Dario W{\"u}nsch and Katrina McKinney and O. Smith and T. Schaul and T. Lillicrap and K. Kavukcuoglu and Demis Hassabis and Chris Apps and D. Silver},
+  journal={Nature},
+  year={2019},
+  pages={1-5}
+}
+
+@article{Jin2018RealTimeBW,
+  title={Real-Time Bidding with Multi-Agent Reinforcement Learning in Display Advertising},
+  author={Junqi Jin and C. Song and Han Li and K. Gai and J. Wang and W. Zhang},
+  journal={Proceedings of the 27th ACM International Conference on Information and Knowledge Management},
+  year={2018}
+}
+
+@article{Chen2019ModelfreeDR,
+  title={Model-free Deep Reinforcement Learning for Urban Autonomous Driving},
+  author={Jianyu Chen and Bodi Yuan and M. Tomizuka},
+  journal={2019 IEEE Intelligent Transportation Systems Conference (ITSC)},
+  year={2019},
+  pages={2765-2771}
+}
+
+@article{Li2020SuphxMM,
+  title={Suphx: Mastering Mahjong with Deep Reinforcement Learning},
+  author={Jun-jie Li and Sotetsu Koyamada and Qiwei Ye and Guoqing Liu and C. Wang and Ruihan Yang and L. Zhao and Tao Qin and T. Liu and H. Hon},
+  journal={ArXiv},
+  year={2020},
+  volume={abs/2003.13590}
+}
+
+@article{Johannink2019ResidualRL,
+  title={Residual Reinforcement Learning for Robot Control},
+  author={T. Johannink and Shikhar Bahl and Ashvin Nair and Jianlan Luo and A. Kumar and M. Loskyll and J. A. Ojea and Eugen Solowjow and S. Levine},
+  journal={2019 International Conference on Robotics and Automation (ICRA)},
+  year={2019},
+  pages={6023-6029}
+}
+
+@article{Wang2018DeepRL,
+  title={Deep Reinforcement Learning with Knowledge Transfer for Online Rides Order Dispatching},
+  author={Zhaodong Wang and Zhiwei Qin and Xiaocheng Tang and Jieping Ye and H. Zhu},
+  journal={2018 IEEE International Conference on Data Mining (ICDM)},
+  year={2018},
+  pages={617-626}
+}
+
+@article{Hinton2006AFL,
+  title={A Fast Learning Algorithm for Deep Belief Nets},
+  author={Geoffrey E. Hinton and Simon Osindero and Y. Teh},
+  journal={Neural Computation},
+  year={2006},
+  volume={18},
+  pages={1527-1554}
+}
+
+@book{kangconglu2015,
+  title={Theory and Applications of Monte Carlo Methods(in Chinese)},
+  author={Conglu Kang},
+  publisher={Science Press},
+  year={2015}
+}
+
+@article{casella2007statistical,
+	title={Statistical Inference Second Edition},
+	author={George Casella and Roger L. Berger},
+	year={2007}
+}
+
+@book{matrix2013fang,
+  title={Matrix(in Chinese)},
+  author={Baorong Fang and Jidong Zhou and Yimin Li},
+  publisher={Tsinghua University Press},
+  year={2013}
+}
+
+@book{Gaoli2014numoptimize,
+  title={Numerical Optimization Method(in Chinese)},
+  author={Li Gao},
+  publisher={Peking University Press},
+  year={2014},
+}
+
+@book{thinkbayes2013,
+   title={Think Bayes: Bayesian Statistics in Python},
+   author={Allen B. Downey},
+   publisher={O'Reilly Media},
+   year={2013}
+}
+
+@article{2006Elements,
+  title={Elements of information theory},
+  author={ Q., C  and  Cover, Thomas M.  and  Thomas, Joy A. },
+  journal={Publications of the American Statal Association},
+  volume={103},
+  number={481},
+  pages={429-429},
+  year={2006},
+}
+
+@phdthesis{liangpengzhang2019,
+  title={Sample Efficiency in Reinforcement Learning},
+  author={Liangpeng Zhang},
+  year={2019},
+}
+
+@article{Wu2017ScalableTM,
+  title={Scalable trust-region method for deep reinforcement learning using Kronecker-factored approximation},
+  author={Yuhuai Wu and Elman Mansimov and Roger B. Grosse and Shun Liao and Jimmy Ba},
+  journal={ArXiv},
+  year={2017},
+  volume={abs/1708.05144}
+}
+
+@article{Pan2019ReinforcementLW,
+  title={Reinforcement Learning with Dynamic Boltzmann Softmax Updates},
+  author={L. Pan and Qingpeng Cai and Q. Meng and Wei Chen and Longbo Huang and T. Liu},
+  journal={ArXiv},
+  year={2019},
+  volume={abs/1903.05926}
+}
+
+@inproceedings{Asadi2017AnAS,
+  title={An Alternative Softmax Operator for Reinforcement Learning},
+  author={Kavosh Asadi and M. Littman},
+  booktitle={ICML},
+  year={2017}
+}
+
+@inproceedings{Littman1996AGR,
+  title={A Generalized Reinforcement-Learning Model: Convergence and Applications},
+  author={M. Littman and Csaba Szepesvari},
+  booktitle={ICML},
+  year={1996}
+}
+
+@article{Amit2020DiscountFA,
+  title={Discount Factor as a Regularizer in Reinforcement Learning},
+  author={Ron Amit and R. Meir and K. Ciosek},
+  journal={ArXiv},
+  year={2020},
+  volume={abs/2007.02040}
+}
+
+@article{Pitis2019RethinkingTD,
+  title={Rethinking the Discount Factor in Reinforcement Learning: A Decision Theoretic Approach},
+  author={Silviu Pitis},
+  journal={ArXiv},
+  year={2019},
+  volume={abs/1902.02893}
+}
+
+@book{sp2008heshuyuan,
+  title={Stochastic Process(in Chinese)},
+  author={Shuyuan He},
+  publisher={Peking University Press},
+  year={2008},
+}
+
+@article{Goodfellow2015DeepL,
+  title={Deep Learning},
+  author={I. Goodfellow and Y. Bengio and A. Courville},
+  journal={Nature},
+  year={2015},
+  volume={521},
+  pages={436-444}
+}
+
+@inproceedings{Schmidhuber1991APF,
+  title={A possibility for implementing curiosity and boredom in model-building neural controllers},
+  author={J{\"u}rgen Schmidhuber},
+  year={1991}
+}
+
+@inproceedings{Houthooft2016VIMEVI,
+  title={VIME: Variational Information Maximizing Exploration},
+  author={Rein Houthooft and Xi Chen and Yan Duan and John Schulman and Filip De Turck and Pieter Abbeel},
+  booktitle={NIPS},
+  year={2016}
+}
+
+@inproceedings{Chapelle2011AnEE,
+  title={An Empirical Evaluation of Thompson Sampling},
+  author={Olivier Chapelle and Lihong Li},
+  booktitle={NIPS},
+  year={2011}
+}
+
+@article{Auer2002FinitetimeAO,
+  title={Finite-time Analysis of the Multiarmed Bandit Problem},
+  author={Peter Auer and Nicol{\`o} Cesa-Bianchi and Paul Fischer},
+  journal={Machine Learning},
+  year={2002},
+  volume={47},
+  pages={235-256}
+}
+
+@misc{Pitfall,
+   author = {Activision (1982)},
+   title = {Pitfall!},
+   howpublished = {\url{https://www.retrogames.cz/play_029-Atari2600.php}}
+}
+
+
+@misc{stochasticmab,
+   author = {Shivani Agarwal},
+   title = {Stochastic Multi Armed Bandits},
+   howpublished = {\url{https://www.shivani-agarwal.net/Teaching/E0370/Aug-2013/Lectures/22.pdf}},
+   year={2013}
+}
+
+@article{Russo2014LearningTO,
+  title={Learning to Optimize via Information-Directed Sampling},
+  author={Daniel Russo and Benjamin Van Roy},
+  journal={ArXiv},
+  year={2014},
+  volume={abs/1403.5556}
+}
+
+@misc{Breakout,
+   author = {Atari, Inc. (1978)},
+   title = {Breakout},
+   howpublished = {\url{https://www.retrogames.cz/play_222-Atari2600.php}}
+}
+
+@article{Burda2019Exp,
+  title={Exploration by Random Network Distillation},
+  author={Yuri Burda and Harrison A Edwards and Amos J. Storkey and Oleg Klimov},
+  journal={ArXiv},
+  year={2019},
+  volume={abs/1810.12894}
+}
+
+@article{Mnih2015HumanlevelCT,
+  title={Human-level control through deep reinforcement learning},
+  author={Volodymyr Mnih and Koray Kavukcuoglu and David Silver and Andrei A. Rusu and Joel Veness and Marc G. Bellemare and Alex Graves and Martin A. Riedmiller and Andreas K. Fidjeland and Georg Ostrovski and Stig Petersen and Charles Beattie and Amir Sadik and Ioannis Antonoglou and Helen. King and Dharshan Kumaran and Daan Wierstra and Shane Legg and Demis Hassabis},
+  journal={Nature},
+  year={2015},
+  volume={518},
+  pages={529-533}
+}
+
+
+@article{Lillicrap2015ContinuousCW,
+  title={Continuous control with deep reinforcement learning},
+  author={Timothy P. Lillicrap and Jonathan J. Hunt and Alexander Pritzel and Nicolas Manfred Otto Heess and Tom Erez and Yuval Tassa and David Silver and Daan Wierstra},
+  journal={CoRR},
+  year={2015},
+  volume={abs/1509.02971}
+}
+
+@inproceedings{Schulman2015TrustRP,
+  title={Trust Region Policy Optimization},
+  author={John Schulman and Sergey Levine and Pieter Abbeel and Michael I. Jordan and Philipp Moritz},
+  booktitle={ICML},
+  year={2015}
+}
+
+@inproceedings{Hasselt2016DeepRL,
+  title={Deep Reinforcement Learning with Double Q-Learning},
+  author={Hado van Hasselt and Arthur Guez and David Silver},
+  booktitle={AAAI},
+  year={2016}
+}
+
+@article{Wang2016DuelingNA,
+  title={Dueling Network Architectures for Deep Reinforcement Learning},
+  author={Ziyu Wang and Tom Schaul and Matteo Hessel and Hado van Hasselt and Marc Lanctot and Nando de Freitas},
+  journal={ArXiv},
+  year={2016},
+  volume={abs/1511.06581}
+}
+
+@article{Schaul2016PrioritizedER,
+  title={Prioritized Experience Replay},
+  author={Tom Schaul and John Quan and Ioannis Antonoglou and David Silver},
+  journal={CoRR},
+  year={2016},
+  volume={abs/1511.05952}
+}
+
+@inproceedings{Mnih2016AsynchronousMF,
+  title={Asynchronous Methods for Deep Reinforcement Learning},
+  author={Volodymyr Mnih and Adri{\`a} Puigdom{\`e}nech Badia and Mehdi Mirza and Alex Graves and Timothy P. Lillicrap and Tim Harley and David Silver and Koray
+  Kavukcuoglu},
+  booktitle={ICML},
+  year={2016}
+}
+
+@inproceedings{Bellemare2016UnifyingCE,
+  title={Unifying Count-Based Exploration and Intrinsic Motivation},
+  author={Marc G. Bellemare and Sriram Srinivasan and Georg Ostrovski and Tom Schaul and David Saxton and R{\'e}mi Munos},
+  booktitle={NIPS},
+  year={2016}
+}
+
+@inproceedings{Thrun1992EfficientEI,
+  title={Efficient Exploration In Reinforcement Learning},
+  author={Sebastian Thrun},
+  year={1992}
+}
+
+@article{Schulman2017EquivalenceBP,
+  title={Equivalence Between Policy Gradients and Soft Q-Learning},
+  author={John Schulman and Pieter Abbeel and Xi Chen},
+  journal={ArXiv},
+  year={2017},
+  volume={abs/1704.06440}
+}
+
+@article{Pathak2017CuriosityDrivenEB,
+  title={Curiosity-Driven Exploration by Self-Supervised Prediction},
+  author={Deepak Pathak and Pulkit Agrawal and Alexei A. Efros and Trevor Darrell},
+  journal={2017 IEEE Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)},
+  year={2017},
+  pages={488-489}
+}
+
+@article{Richemond2017ASV,
+  title={A short variational proof of equivalence between policy gradients and soft Q learning},
+  author={Pierre H. Richemond and Brendan Maginnis},
+  journal={ArXiv},
+  year={2017},
+  volume={abs/1712.08650}
+}
+
+@article{Andrychowicz2017HindsightER,
+  title={Hindsight Experience Replay},
+  author={Marcin Andrychowicz and Dwight Crow and Alex Ray and Jonas Schneider and Rachel H Fong and Peter Welinder and Bob McGrew and Josh Tobin and Pieter Abbeel and Wojciech Zaremba},
+  journal={ArXiv},
+  year={2017},
+  volume={abs/1707.01495}
+}
+
+@article{Haarnoja2017ReinforcementLW,
+  title={Reinforcement Learning with Deep Energy-Based Policies},
+  author={Tuomas Haarnoja and Haoran Tang and Pieter Abbeel and Sergey Levine},
+  journal={ArXiv},
+  year={2017},
+  volume={abs/1702.08165}
+}
+
+@article{Schulman2017ProximalPO,
+  title={Proximal Policy Optimization Algorithms},
+  author={John Schulman and Filip Wolski and Prafulla Dhariwal and Alec Radford and Oleg Klimov},
+  journal={ArXiv},
+  year={2017},
+  volume={abs/1707.06347}
+}
+
+@inproceedings{Haarnoja2018SoftAO,
+  title={Soft Actor-Critic: Off-Policy Maximum Entropy Deep Reinforcement Learning with a Stochastic Actor},
+  author={Tuomas Haarnoja and Aurick Zhou and Pieter Abbeel and Sergey Levine},
+  booktitle={ICML},
+  year={2018}
+}
+
+@article{Riedmiller2018LearningBP,
+  title={Learning by Playing - Solving Sparse Reward Tasks from Scratch},
+  author={Martin A. Riedmiller and Roland Hafner and Thomas Lampe and Michael Neunert and Jonas Degrave and Tom Van de Wiele and Volodymyr Mnih and Nicolas Manfred Otto Heess and Jost Tobias Springenberg},
+  journal={ArXiv},
+  year={2018},
+  volume={abs/1802.10567}
+}
+
+@article{Burda2019ExplorationBR,
+  title={Exploration by Random Network Distillation},
+  author={Yuri Burda and Harrison A Edwards and Amos J. Storkey and Oleg Klimov},
+  journal={ArXiv},
+  year={2019},
+  volume={abs/1810.12894}
+}
+
+@article{Burda2019LargeScaleSO,
+  title={Large-Scale Study of Curiosity-Driven Learning},
+  author={Yuri Burda and Harrison A Edwards and Deepak Pathak and Amos J. Storkey and Trevor Darrell and Alexei A. Efros},
+  journal={ArXiv},
+  year={2019},
+  volume={abs/1808.04355}
+}
+
+@article{Savinov2019EpisodicCT,
+  title={Episodic Curiosity through Reachability},
+  author={Nikolay Savinov and Anton Raichuk and Raphael Marinier and Damien Vincent and Marc Pollefeys and Timothy P. Lillicrap and Sylvain Gelly},
+  journal={ArXiv},
+  year={2019},
+  volume={abs/1810.02274}
+}
+
+@article{Ecoffet2019GoExploreAN,
+  title={Go-Explore: a New Approach for Hard-Exploration Problems},
+  author={Adrien Ecoffet and Joost Huizinga and Joel Lehman and Kenneth O. Stanley and Jeff Clune},
+  journal={ArXiv},
+  year={2019},
+  volume={abs/1901.10995}
+}
+
+@inproceedings{Bellemare2016,
+  title={Unifying Count-Based Exploration and Intrinsic Motivation},
+  author={Marc G. Bellemare and Sriram Srinivasan and Georg Ostrovski and Tom Schaul and David Saxton and Remi Munos},
+  booktitle={NIPS},
+  year={2016}
+}
+
+@article{Salimans2018LearningMR,
+  title={Learning Montezuma's Revenge from a Single Demonstration},
+  author={Tim Salimans and Richard Chen},
+  journal={ArXiv},
+  year={2018},
+  volume={abs/1812.03381}
+}
+
+@inproceedings{Aytar2018PlayingHE,
+  title={Playing hard exploration games by watching YouTube},
+  author={Yusuf Aytar and Tobias Pfaff and David Budden and Thomas Paine and Ziyu Wang and Nando de Freitas},
+  booktitle={NeurIPS},
+  year={2018}
+}
+
+@article{Paine2020MakingEU,
+  title={Making Efficient Use of Demonstrations to Solve Hard Exploration Problems},
+  author={Tom Le Paine and Caglar Gulcehre and Bobak Shahriari and Misha Denil and Matthew D. Hoffman and Hubert Soyer and Richard Tanburn and Steven Kapturowski and Neil C. Rabinowitz and D.V.J. Williams and Gabriel Barth-Maron and Ziyu Wang and Nando de Freitas and Worlds Team},
+  journal={ArXiv},
+  year={2020},
+  volume={abs/1909.01387}
+}
+
+@misc{pathak2019selfsupervised,
+    title={Self-Supervised Exploration via Disagreement},
+    author={Deepak Pathak and Dhiraj Gandhi and Abhinav Gupta},
+    year={2019},
+    eprint={1906.04161},
+    archivePrefix={arXiv},
+    primaryClass={cs.LG}
+}
+
+@article{Pitis2019RethinkingTD,
+  title={Rethinking the Discount Factor in Reinforcement Learning: A Decision Theoretic Approach},
+  author={Silviu Pitis},
+  journal={ArXiv},
+  year={2019},
+  volume={abs/1902.02893}
+}
+
+@article{Amit2020DiscountFA,
+  title={Discount Factor as a Regularizer in Reinforcement Learning},
+  author={Ron Amit and R. Meir and K. Ciosek},
+  journal={ArXiv},
+  year={2020},
+  volume={abs/2007.02040}
+}
+
+@inproceedings{Asadi2017AnAS,
+  title={An Alternative Softmax Operator for Reinforcement Learning},
+  author={Kavosh Asadi and M. Littman},
+  booktitle={ICML},
+  year={2017}
+}
+
+@article{Pan2019ReinforcementLW,
+  title={Reinforcement Learning with Dynamic Boltzmann Softmax Updates},
+  author={L. Pan and Qingpeng Cai and Q. Meng and Wei Chen and Longbo Huang and T. Liu},
+  journal={ArXiv},
+  year={2019},
+  volume={abs/1903.05926}
+}
+
+@inproceedings{Littman1996AGR,
+  title={A Generalized Reinforcement-Learning Model: Convergence and Applications},
+  author={M. Littman and Csaba Szepesvari},
+  booktitle={ICML},
+  year={1996}
+}
+
+@article{Fortunato2018NoisyNF,
+  title={Noisy Networks for Exploration},
+  author={Meire Fortunato and Mohammad Gheshlaghi Azar and Bilal Piot and Jacob Menick and Ian Osband and Alex Graves and Vlad Mnih and R{\'e}mi Munos and Demis Hassabis and Olivier Pietquin and Charles Blundell and Shane Legg},
+  journal={ArXiv},
+  year={2018},
+  volume={abs/1706.10295}
+}
+
+@article{Tang2017ExplorationAS,
+  title={Exploration: A Study of Count-Based Exploration for Deep Reinforcement Learning},
+  author={Haoran Tang and Rein Houthooft and Davis Foote and Adam Stooke and Xi Chen and Yan Duan and John Schulman and Filip De Turck and Pieter Abbeel},
+  journal={ArXiv},
+  year={2017},
+  volume={abs/1611.04717}
+}
+
+@article{Choshen2018DORATE,
+  title={DORA The Explorer: Directed Outreaching Reinforcement Action-Selection},
+  author={Leshem Choshen and Lior Fox and Yonatan Loewenstein},
+  journal={ArXiv},
+  year={2018},
+  volume={abs/1804.04012}
+}
+
+@article{Plappert2017ParameterSN,
+  title={Parameter Space Noise for Exploration},
+  author={Matthias Plappert and Rein Houthooft and Prafulla Dhariwal and Szymon Sidor and Richard Y. Chen and Xi Chen and Tamim Asfour and Pieter Abbeel and Marcin Andrychowicz},
+  journal={ArXiv},
+  year={2017},
+  volume={abs/1706.01905}
+}
+
+@article{Hong2018DiversityDrivenES,
+  title={Diversity-Driven Exploration Strategy for Deep Reinforcement Learning},
+  author={Zhang-Wei Hong and Tzu-Yun Shann and Shih-Yang Su and Yi-Hsiang Chang and Chun-Yi Lee},
+  journal={ArXiv},
+  year={2018},
+  volume={abs/1802.04564}
+}
+
+@inproceedings{ostrovski2017count,
+  title={Count-Based Exploration with Neural Density Models},
+  author={Ostrovski, Georg and Bellemare, Marc G and Oord, A{\"a}ron and Munos, R{\'e}mi},
+  booktitle={International Conference on Machine Learning},
+  pages={2721--2730},
+  year={2017}
+}
+
+@inproceedings{osband2016deep,
+  title={Deep exploration via bootstrapped DQN},
+  author={Osband, Ian and Blundell, Charles and Pritzel, Alexander and Van Roy, Benjamin},
+  booktitle={Advances in neural information processing systems},
+  pages={4026--4034},
+  year={2016}
+}
+
+@article{Hessel2018RainbowCI,
+  title={Rainbow: Combining Improvements in Deep Reinforcement Learning},
+  author={Matteo Hessel and Joseph Modayil and H. V. Hasselt and T. Schaul and Georg Ostrovski and W. Dabney and Dan Horgan and B. Piot and Mohammad Gheshlaghi Azar and D. Silver},
+  journal={ArXiv},
+  year={2018},
+  volume={abs/1710.02298}
+}
+
+
+@article{Strehl2008AnAO,
+  title={An analysis of model-based Interval Estimation for Markov Decision Processes},
+  author={Alexander L. Strehl and M. Littman},
+  journal={J. Comput. Syst. Sci.},
+  year={2008},
+  volume={74},
+  pages={1309-1331}
+}
+
+@inproceedings{Kolter2009RegularizationAF,
+  title={Regularization and feature selection in least-squares temporal difference learning},
+  author={J. Z. Kolter and A. Ng},
+  booktitle={ICML '09},
+  year={2009}
+}
+
+@article{Silver2016MasteringTG,
+  title={Mastering the game of Go with deep neural networks and tree search},
+  author={D. Silver and Aja Huang and Chris J. Maddison and A. Guez and L. Sifre and George van den Driessche and Julian Schrittwieser and Ioannis Antonoglou and Vedavyas Panneershelvam and Marc Lanctot and S. Dieleman and Dominik Grewe and John Nham and Nal Kalchbrenner and Ilya Sutskever and T. Lillicrap and M. Leach and K. Kavukcuoglu and T. Graepel and Demis Hassabis},
+  journal={Nature},
+  year={2016},
+  volume={529},
+  pages={484-489}
+}
+
+@article{Oord2016PixelRN,
+  title={Pixel Recurrent Neural Networks},
+  author={A. Oord and Nal Kalchbrenner and K. Kavukcuoglu},
+  journal={ArXiv},
+  year={2016},
+  volume={abs/1601.06759}
+}
